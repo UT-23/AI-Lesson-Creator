@@ -38,6 +38,7 @@ class ErrorKind(str, Enum):
     bad_response = "bad_response"  # unexpected payload from the API
     not_found = "not_found"
     unavailable = "unavailable"  # e.g. no transcript for this video
+    too_large = "too_large"  # request exceeds the model's token limit (e.g. Groq 413)
 
 
 RETRYABLE_KINDS = {ErrorKind.rate_limited, ErrorKind.timeout, ErrorKind.network}

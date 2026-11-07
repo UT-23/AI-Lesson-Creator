@@ -61,9 +61,17 @@ def build_providers(settings: Settings) -> Providers:
         return GeminiProvider(gemini_key, model, timeout_s=settings.gemini_timeout_s,
                               temperature=settings.gemini_temperature, retry=llm_retry)
 
+    groq_key = _secret(settings.groq_api_key)
+
     def chain(first: str) -> FallbackLLM:
         models = list(dict.fromkeys([first, *settings.fallback_models()]))  # preferred first, no duplicates
-        return FallbackLLM([gemini(m) for m in models])
+        providers: list[LLMProvider] = [gemini(m) for m in models]
+        if groq_key and settings.groq_model:  # Groq only after every Gemini model failed
+            from app.providers.groq import GroqProvider
+
+            providers.append(GroqProvider(groq_key, settings.groq_model, timeout_s=settings.gemini_timeout_s,
+                                          temperature=settings.gemini_temperature))
+        return FallbackLLM(providers)
 
     qc_llm = chain(settings.qc_model)
     youtube_key = _secret(settings.youtube_api_key)

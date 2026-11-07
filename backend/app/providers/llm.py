@@ -240,7 +240,7 @@ def generate_structured(
 
 # Failures that are about this model/moment, not about our request: try the next model.
 FALLBACK_KINDS = {ErrorKind.rate_limited, ErrorKind.quota_exhausted, ErrorKind.network,
-                  ErrorKind.timeout, ErrorKind.not_found}
+                  ErrorKind.timeout, ErrorKind.not_found, ErrorKind.too_large}
 
 
 class FallbackLLM(LLMProvider):
@@ -267,7 +267,8 @@ class FallbackLLM(LLMProvider):
         """Same chain, with `model` moved to the end (e.g. QC prefers a model other than the generator)."""
         if not model:
             return self
-        ordered = [p for p in self.providers if p.model != model] + [p for p in self.providers if p.model == model]
+        same = {model, model.split(":", 1)[-1]}  # accepts "provider:model" or a bare model id
+        ordered = [p for p in self.providers if p.model not in same] + [p for p in self.providers if p.model in same]
         return FallbackLLM(ordered)
 
     def complete_json(
@@ -290,7 +291,7 @@ class FallbackLLM(LLMProvider):
                 failures.append(f"{provider.model}: {err.message}")
                 last = err
                 continue
-            self.last_model = provider.model
+            self.last_model = f"{provider.name}:{provider.model}"  # e.g. "gemini:gemini-3.5-flash-lite"
             return text
         raise ProviderError("gemini", last.kind if last else ErrorKind.not_configured,
                             "Every model in the fallback chain failed — " + " | ".join(failures))

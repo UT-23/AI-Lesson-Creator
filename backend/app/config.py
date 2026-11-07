@@ -68,6 +68,9 @@ class Settings(BaseSettings):
     gemini_timeout_s: float = 120.0
     # Comma-separated Gemini model ids tried in order after GEN_MODEL / QC_MODEL on 429/503/504/timeouts.
     llm_fallback_models: str = ""
+    # Last resort after every Gemini model failed (OpenAI-compatible Groq API).
+    groq_api_key: SecretStr | None = None
+    groq_model: str = ""
     gemini_temperature: float = 0.2
     retry_max_attempts: int = 4
     retry_min_wait_s: float = 2.0

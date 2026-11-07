@@ -36,6 +36,31 @@ def test_fallback_moves_to_next_model_and_records_it() -> None:
     second.queue("Small", json.dumps({"n": 7}))
     chain = FallbackLLM([first, second])
     assert generate_structured(chain, "p", Small).n == 7
-    assert chain.last_model == "m-second" and len(first.calls) == 1
+    assert chain.last_model == "fake-llm:m-second" and len(first.calls) == 1
     assert chain.preferring_not("m-second").models == ["m-first", "m-second"]
     assert chain.preferring_not("m-first").models == ["m-second", "m-first"]
+
+
+def test_gemini_failure_routes_to_groq_and_trims_once_on_413() -> None:
+    import httpx
+
+    from app.providers.groq import GroqProvider
+
+    sent: list[int] = []
+
+    def groq_api(req: httpx.Request) -> httpx.Response:
+        body = json.loads(req.content)
+        sent.append(len(body["messages"][1]["content"]))
+        if len(sent) == 1:
+            return httpx.Response(413, text="Request too large for model")
+        return httpx.Response(200, json={"choices": [{"message": {"content": '{"n": 5}'}}]})
+
+    gemini = FakeLLM(model="gemini-x")
+    gemini.name = "gemini"
+    gemini.fail_with = ProviderError("gemini", ErrorKind.network, "Gemini service error (503 UNAVAILABLE)")
+    groq = GroqProvider("k", "groq-model", client=httpx.Client(transport=httpx.MockTransport(groq_api)))
+    chain = FallbackLLM([gemini, groq])
+
+    assert generate_structured(chain, "x" * 50_000, Small).n == 5
+    assert chain.last_model == "groq:groq-model"
+    assert len(sent) == 2 and sent[1] < sent[0]  # one trimmed retry, no loop
