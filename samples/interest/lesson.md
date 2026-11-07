@@ -35,12 +35,12 @@ When calculating interest, learners often encounter a few recurring pitfalls:
 Let us examine four fully worked examples—two for simple interest and two for compound interest—using different numbers to see how the formulas operate in practice.
 
 ### Example 1: Simple Interest Calculation (Scenario A)
-**Problem:** £1,500 is invested for 4 years at 5% per year simple interest. What is the final value of the investment? [S5]
+**Problem:** ₹1,500 is invested for 4 years at 5% per year simple interest. What is the final value of the investment? [S5]
 * **Step 1:** State the formula and identify variables: A = P(1 + rt). Here, P = 1500, r = 5% = 0.05, and t = 4 [S5].
 * **Step 2:** Substitute the values into the formula: A = 1500 × (1 + (0.05 × 4)) [S5].
 * **Step 3:** Perform the arithmetic inside the parentheses: 0.05 × 4 = 0.20. Then 1 + 0.20 = 1.20.
 * **Step 4:** Multiply by the principal: A = 1500 × 1.20 = 1,800.
-* **Final Answer:** £1,800.
+* **Final Answer:** ₹1,800.
 
 ### Example 2: Simple Interest Calculation (Scenario B)
 **Problem:** $10,000 is invested in a simple interest account with a 2 percent annual rate for 1 year. What is the total balance at the end of the year? [S7]
@@ -50,13 +50,13 @@ Let us examine four fully worked examples—two for simple interest and two for 
 * **Final Answer:** $10,200.
 
 ### Example 3: Compound Interest Calculation (Scenario A)
-**Problem:** £8,500 is invested for 5 years into a bank account at 0.3% per year compound interest. What is the value of the investment after this time? [S5]
+**Problem:** ₹8,500 is invested for 5 years into a bank account at 0.3% per year compound interest. What is the value of the investment after this time? [S5]
 * **Step 1:** State the formula and identify variables: A = P(1 + r)^t. Here, P = 8500, r = 0.3% = 0.003, and t = 5 [S5].
 * **Step 2:** Substitute into the formula: A = 8500 × (1 + 0.003)^5 [S5].
 * **Step 3:** Compute the base: 1 + 0.003 = 1.003.
 * **Step 4:** Raise to the power of 5: (1.003)^5 ≈ 1.50896.
 * **Step 5:** Multiply by principal: A = 8500 × 1.008985 (approx) = 8,628.79 (rounded to two decimal places).
-* **Final Answer:** £8,628.79.
+* **Final Answer:** ₹8,628.79.
 
 ### Example 4: Compound Interest Calculation (Scenario B)
 **Problem:** $10,000 is deposited into an account earning 5 percent compound interest annually for 3 years. What is the final accumulated amount? [S15]
@@ -139,12 +139,12 @@ Answer the following six questions to verify your mastery of simple interest, co
    - D) $10,500.00
    - **Answer:** $11,576.25 — Using the compound interest formula A = P(1 + r)^t, $10,000 × (1.05)^3 results in $11,576.25 [S8], [S15].
 
-4. An investment of £8,500 is placed into an account at 0.3% per year compound interest for 5 years. What is the final value?
-   - A) £8,628.79
-   - B) £8,512.50
-   - C) £8,750.00
-   - D) £8,600.00
-   - **Answer:** £8,628.79 — Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately £8,628.79 [S5].
+4. An investment of ₹8,500 is placed into an account at 0.3% per year compound interest for 5 years. What is the final value?
+   - A) ₹8,628.79
+   - B) ₹8,512.50
+   - C) ₹8,750.00
+   - D) ₹8,600.00
+   - **Answer:** ₹8,628.79 — Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately ₹8,628.79 [S5].
 
 5. Why does compound interest grow faster than simple interest over extended time periods?
    - A) Compound interest applies a higher interest rate every single month automatically.

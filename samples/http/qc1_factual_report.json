@@ -1598,7 +1598,7 @@
       "source_ids": [
         "S16"
       ],
-      "status": "open",
+      "status": "applied",
       "id": 1,
       "severity": "major",
       "location": "sec-4",

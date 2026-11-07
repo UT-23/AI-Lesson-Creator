@@ -51,7 +51,8 @@ def normalize(line: str) -> str:
     s = re.sub(r"\\(?:cdot|times)|[×·]", "*", s)
     s = s.replace("\\approx", "≈").replace("\\$", "").replace("$", "").replace("\\,", "").replace("**", "*")
     s = s.replace("^", "**").replace("{", "(").replace("}", ")")
-    s = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", s)  # thousands separators
+    s = re.sub(r"(?:₹|\bRs\.?|\bINR)\s*", "", s)  # rupee markers
+    s = re.sub(r"(?<=\d),(?=(?:\d{2},)*\d{3}(?!\d))", "", s)  # 8,628.79 and Indian grouping 1,23,456.50
     s = re.sub(r"(\d+(?:\.\d+)?)\s*%", r"(\1/100)", s)
     s = re.sub(r"(\d|\))\s*\(", r"\1*(", s)  # implicit multiplication: 10000 (1.05) / )(
     s = re.sub(r"\)\s*(\d)", r")*\1", s)
@@ -119,8 +120,9 @@ def check_text(text: str, location: str) -> list[NumericCheck]:
 
 _BINDING = re.compile(r"(?<![A-Za-z])([Prtn])\s*=\s*((?:\d[\d,]*(?:\.\d+)?\s*%?\s*=\s*)*\d[\d,]*(?:\.\d+)?\s*%?)(?!\s*[×*·x(\^\d])")
 _PROBLEM_START = re.compile(r"^\s*(#{2,4}\s|\*\*(?:problem|example|task|exercise)|(?:problem|example|task|question|q)\s*\d)", re.I)
-_RESULT_LINE = re.compile(r"final answer|answer|yields|results? in|gives|total|final value|=\s*[£$€]", re.I)
-_MONEY = re.compile(r"[£$€]\s?(\d[\d,]*(?:\.\d+)?)|=\s*(\d[\d,]*\.\d{2})\b")
+_CURRENCY = r"(?:[£$€₹]|\bRs\.?|\bINR)"
+_RESULT_LINE = re.compile(rf"final answer|answer|yields|results? in|gives|total|final value|=\s*{_CURRENCY}", re.I)
+_MONEY = re.compile(rf"{_CURRENCY}\s?(\d[\d,]*(?:\.\d+)?)|=\s*(\d[\d,]*\.\d{{2}})\b")
 
 
 def _to_number(raw: str) -> float:

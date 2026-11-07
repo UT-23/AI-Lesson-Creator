@@ -141,3 +141,12 @@ def test_problem_result_check_accepts_correct_and_rounded_answers() -> None:
             "* **Final Answer:** $11,576.25 (yielding $1,576.25 interest compared to $1,500 under simple interest).\n"
             "**Problem:** rounded factor.\n* P = 10000, r = 0.05, t = 3\n* **Final Answer:** $11,576.00")
     assert check_problem_results(text, "sec-3") == []
+
+
+def test_rupee_amounts_and_indian_grouping() -> None:
+    from app.pipeline.numeric import check_problem_results, check_text
+
+    assert all(c.ok for c in check_text("A = 125000 × 1.05 = ₹1,31,250.00", "x"))
+    assert not check_text("Rs. 1,00,000 × 0.05 × 2 = Rs. 11,000", "x")[0].ok  # should be 10,000
+    found = check_problem_results("**Problem:** loan\n* P = 8500, r = 0.3% = 0.003, t = 5\n* **Final Answer:** ₹8,628.79", "s")
+    assert len(found) == 1 and found[0].stated == 8628.79

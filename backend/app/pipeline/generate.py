@@ -117,6 +117,9 @@ Structure — section ids "sec-1", "sec-2", ... in reading order:
 6. knowledge_check: one or two sentences of instructions; the questions themselves go in "knowledge_check".
 7. summary: 3-5 key takeaways.
 
+Money: use Indian rupees (₹) in examples and exercises unless the topic needs another currency; write
+amounts with Indian digit grouping, e.g. ₹1,25,000.50.
+
 Citations:
 - Put a citation like [S2] right after every factual claim: definitions, rules, formulas, standards, numbers.
   Your own worked arithmetic and the activity instructions need no citation.

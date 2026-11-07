@@ -139,7 +139,7 @@ _None._
 
 | ID | Severity | Category | Where | Text | Evidence | Suggestion | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| F-1 | major | low_tier_source | sec-4 | 401 Unauthorized: The request lacks valid authentication credentials . | Only tier-4 source(s): S16 | Support this key claim with a tier 1-2 source from the evidence store, or soften it. | open |
+| F-1 | major | low_tier_source | sec-4 | 401 Unauthorized: The request lacks valid authentication credentials . | Only tier-4 source(s): S16 | Support this key claim with a tier 1-2 source from the evidence store, or soften it. | applied |
 | F-2 | major | low_tier_source | sec-4 | 403 Forbidden: The server understands the request but refuses to authorize it . | Only tier-4 source(s): S16 | Support this key claim with a tier 1-2 source from the evidence store, or soften it. | open |
 | F-3 | major | low_tier_source | sec-4 | 503 Service Unavailable: The server is currently unable to handle the request, often due to maintenance or overload . | Only tier-4 source(s): S16 | Support this key claim with a tier 1-2 source from the evidence store, or soften it. | open |
 | F-4 | major | low_tier_source | sec-5 | Response Code: 500 Internal Server Error . | Only tier-4 source(s): S16 | Support this key claim with a tier 1-2 source from the evidence store, or soften it. | open |

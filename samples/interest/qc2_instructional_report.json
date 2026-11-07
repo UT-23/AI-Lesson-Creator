@@ -1,14 +1,14 @@
 {
-  "report_id": 4,
+  "report_id": 12,
   "layer": "instructional",
   "lesson_id": 2,
-  "lesson_version_no": 1,
+  "lesson_version_no": 2,
   "score": 96.7,
-  "summary": "This lesson provides a clear, structured introduction to simple and compound interest for adult beginners. It effectively balances conceptual explanations with practical examples and includes a variety of practice tasks and quiz questions to reinforce learning. Rubric average 4.8/5. Measured time 23.3 of 45 min. Reviewer: gemini-3.1-flash-lite.",
-  "created_at": "2026-11-07T15:17:13.274089+00:00",
+  "summary": "This lesson provides a clear, structured introduction to simple and compound interest for adult beginners. It effectively balances conceptual definitions with practical calculations and includes a variety of practice tasks and assessment questions to reinforce learning. Rubric average 4.8/5. Measured time 23.3 of 45 min. Reviewer: gemini:gemini-3.1-flash-lite.",
+  "created_at": "2026-11-07T16:57:45.201395+00:00",
   "details": {
     "method": "one LLM review call (no access to QC1) + code: quiz mapping, coverage gaps, time budget",
-    "model": "gemini-3.1-flash-lite",
+    "model": "gemini:gemini-3.1-flash-lite",
     "coverage_matrix": [
       {
         "outcome": "Calculate simple interest for a given principal, rate, and time.",
@@ -49,7 +49,7 @@
           "sections": [
             "sec-2"
           ],
-          "note": "Formula and conceptual basis explained."
+          "note": "Formula and conceptual explanation provided."
         },
         "example": {
           "present": true,
@@ -81,14 +81,14 @@
           "sections": [
             "sec-2"
           ],
-          "note": "Conceptual difference between linear and exponential growth is well-defined."
+          "note": "Conceptual explanation of 'interest on interest' provided."
         },
         "example": {
           "present": true,
           "sections": [
             "sec-3"
           ],
-          "note": "Example 4 explicitly compares the final interest amounts."
+          "note": "Example 4 explicitly compares the final amounts."
         },
         "practice": {
           "present": true,
@@ -113,7 +113,7 @@
         "verb": "Calculate",
         "bloom_level": "apply",
         "aligned": true,
-        "evidence": "The learner is required to use the formula I=Prt and A=P(1+rt) in both practice tasks and quiz questions.",
+        "evidence": "The lesson provides formulas and requires the learner to perform calculations in both practice tasks and quiz questions.",
         "suggestion": "None needed."
       },
       {
@@ -121,7 +121,7 @@
         "verb": "Calculate",
         "bloom_level": "apply",
         "aligned": true,
-        "evidence": "The learner must perform exponentiation and multiplication in practice tasks and quiz questions.",
+        "evidence": "The lesson provides formulas and requires the learner to perform calculations in both practice tasks and quiz questions.",
         "suggestion": "None needed."
       },
       {
@@ -129,7 +129,7 @@
         "verb": "Explain",
         "bloom_level": "understand",
         "aligned": true,
-        "evidence": "Task 5 requires the learner to synthesize the concept in their own words, and quiz questions Q5/Q6 test the underlying logic.",
+        "evidence": "The practice task asks the learner to describe the phenomenon in their own words, and quiz questions test conceptual understanding.",
         "suggestion": "None needed."
       }
     ],
@@ -137,32 +137,32 @@
       {
         "criterion": "clarity",
         "score": 5,
-        "justification": "The language is accessible and professional, ideal for adult learners."
+        "justification": "The language is accessible, and the distinction between the two types of interest is very clear."
       },
       {
         "criterion": "structure_flow",
         "score": 5,
-        "justification": "Logical progression from hook to concept to practice."
+        "justification": "The lesson follows a logical progression from hook to concept, example, practice, and assessment."
       },
       {
         "criterion": "jargon_before_use",
         "score": 5,
-        "justification": "All terms like principal and compounding are defined before they are used in formulas."
+        "justification": "All key terms like principal, rate, and time are defined in section 2 before being used in formulas."
       },
       {
         "criterion": "example_quality",
         "score": 4,
-        "justification": "Examples are clear, though the currency switch from $ to \u00a3 in examples 1 and 3 is slightly distracting."
+        "justification": "Examples are well-structured, though the inclusion of different currencies (\u20b9 and $) might be slightly confusing for some learners."
       },
       {
         "criterion": "practical_relevance",
         "score": 5,
-        "justification": "The lesson connects math to real-world financial decisions."
+        "justification": "The lesson connects the math to real-world scenarios like savings accounts and loans."
       },
       {
         "criterion": "outcome_alignment",
         "score": 5,
-        "justification": "All outcomes are directly supported by practice and assessment."
+        "justification": "The content, practice, and assessment are perfectly aligned with the stated outcomes."
       }
     ],
     "rubric_average": 4.83,
@@ -244,14 +244,14 @@
     {
       "category": "consistency",
       "issue_id": "I-1",
-      "claim_or_text": "Switching between \u00a3 and $ in examples.",
+      "claim_or_text": "The examples use a mix of currency symbols (\u20b9 and $).",
       "source_ids": [],
       "status": "open",
+      "id": 281,
       "severity": "minor",
-      "id": 58,
       "location": "sec-3",
       "evidence": "",
-      "suggestion": "Standardize all examples to one currency to avoid unnecessary cognitive load for the learner."
+      "suggestion": "Standardize all examples to a single currency or use a generic symbol to avoid unnecessary cognitive load."
     }
   ]
 }
