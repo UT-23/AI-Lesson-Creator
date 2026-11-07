@@ -10,6 +10,7 @@ from app.api.deps import get_lesson_or_404, get_providers
 from app.config import Settings, get_settings
 from app.db import get_session
 from app.export.exporter import build_export
+from app.pipeline.timebudget import compute_time_budget
 from app.models import Lesson, LessonStatus, VersionAuthor
 from app.pipeline.orchestrator import RunRejected, create_steps, get_steps, run_pipeline, start_run
 from app.providers import Providers
@@ -84,6 +85,9 @@ def get_lesson(lesson: Lesson = Depends(get_lesson_or_404), session: Session = D
         "generation": {"model": gen.get("model"), "warnings": gen.get("warnings", []),
                        "minutes_adjusted": gen.get("minutes_adjusted", [])},
         "time_budget": steps["timebudget"].output_json,
+        # Measured on the latest version right now (the timebudget step output can predate edits).
+        "measured_time": None if version is None else compute_time_budget(
+            LessonContent.model_validate(version.content_json)).model_dump(),
         "sources": [s.model_dump(exclude={"key", "lesson_id"}) | {"type": s.type.value}
                     for sid, s in sorted(sources.items(), key=lambda kv: int(kv[0][1:])) if sid in current],
     }
