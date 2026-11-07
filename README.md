@@ -26,6 +26,8 @@ Then edit `.env`:
 | `TAVILY_API_KEY` | yes | https://app.tavily.com (free: 1,000 credits/month) |
 | `GEN_MODEL`, `QC_MODEL` | yes | Gemini model ids; QC should differ from generation |
 | `LLM_FALLBACK_MODELS` | recommended | e.g. `gemini-3.5-flash-lite,gemini-3.1-flash-lite`; check yours with `scripts\check_models.py` |
+| `GROQ_API_KEY`, `GROQ_MODEL` | optional | last-resort LLM after every Gemini model fails (verified model: `openai/gpt-oss-120b`) |
+| `DEMO_OFFLINE` | optional | `1` = fake providers, no keys needed (outputs marked `[FAKE]`) |
 | `YOUTUBE_API_KEY` | optional | without it the YouTube step warns and the lesson still completes |
 | `GOOGLE_BOOKS_API_KEY` | optional | Google Books works keyless; Open Library is the fallback |
 
@@ -43,11 +45,22 @@ Start the backend in terminal 1:
 cd backend; .venv\Scripts\python -m uvicorn app.main:app --port 8000
 ```
 
-Start the UI in terminal 2, then open http://localhost:8501:
+Start the **Lesson Studio** web frontend (`/web`) in terminal 2, then open http://localhost:5173:
 
 ```powershell
-backend\.venv\Scripts\streamlit run frontend\app.py
+cd web
+npm install
+npm run dev
 ```
+
+The web app connects to `http://localhost:8000` by default. To point it at a different backend URL, set `VITE_API_URL` before starting Vite (or in `web/.env`):
+
+```powershell
+$env:VITE_API_URL="http://localhost:8000"
+npm run dev
+```
+
+(Legacy Streamlit UI: `backend\.venv\Scripts\streamlit run frontend\app.py` on http://localhost:8501.)
 
 API docs: http://localhost:8000/docs. Offline demo with no keys: set `DEMO_OFFLINE=1` (every fake output is marked `[FAKE]`).
 
@@ -150,9 +163,9 @@ See [Manual fact verification of the samples](#manual-fact-verification-of-the-s
 
 ## Acknowledgments
 
-- **Libraries:** FastAPI, Pydantic, pydantic-settings, SQLModel/SQLAlchemy, httpx, tenacity, google-genai, youtube-transcript-api, Streamlit, pandas, pytest, uvicorn.
-- **APIs:** Google Gemini API, Tavily Search/Extract, YouTube Data API v3, Google Books API, Open Library.
-- **AI assistance:** AI coding assistants were used for implementation support; architecture and design decisions are documented in DECISIONS.md.
+- **Libraries:** FastAPI, Pydantic, pydantic-settings, SQLModel/SQLAlchemy, httpx, tenacity, google-genai, youtube-transcript-api, git-filter-repo (maintenance only), Streamlit, pandas, Altair, Playwright (UI screenshots), pytest, uvicorn; web: React, Vite, TypeScript, Tailwind CSS, framer-motion, lucide-react, react-markdown, remark-gfm.
+- **APIs:** Google Gemini API, Groq API, Tavily Search/Extract, YouTube Data API v3, Google Books API, Open Library.
+- **AI assistance:** AI coding assistants were used for implementation support; design decisions are documented in DECISIONS.md.
 
 ---
 

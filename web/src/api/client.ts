@@ -16,6 +16,17 @@ import { parseZipFileNames } from '../utils/zipInspect';
 
 export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/+$/, '');
 
+function resolveFetchUrl(path: string): string {
+  // If VITE_API_URL is explicitly set, call it directly; otherwise in dev on port 3000 use Vite's same-origin proxy to avoid CORS mismatch with :8000
+  if (import.meta.env.VITE_API_URL) {
+    return `${API_BASE_URL}${path}`;
+  }
+  if (typeof window !== 'undefined' && window.location.port === '3000') {
+    return path;
+  }
+  return `${API_BASE_URL}${path}`;
+}
+
 export class ApiError extends Error {
   status: number;
   isNetworkError: boolean;
@@ -40,7 +51,7 @@ export class ApiError extends Error {
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   let response: Response;
   try {
-    response = await fetch(`${API_BASE_URL}${path}`, {
+    response = await fetch(resolveFetchUrl(path), {
       ...options,
       headers: {
         ...(options.body ? { 'Content-Type': 'application/json' } : {}),
@@ -51,6 +62,14 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     const msg = err instanceof Error ? err.message : String(err);
     throw new ApiError(
       `Can't reach the backend at ${API_BASE_URL}. Start it and retry. (${msg})`,
+      0,
+      true
+    );
+  }
+
+  if (response.headers.get('X-Proxy-Backend-Down') === '1') {
+    throw new ApiError(
+      `Can't reach the backend at ${API_BASE_URL}. Start it and retry.`,
       0,
       true
     );
@@ -172,11 +191,19 @@ export const api = {
   ): Promise<{ blob: Blob; fileNames: string[]; filename: string }> => {
     let response: Response;
     try {
-      response = await fetch(`${API_BASE_URL}/lessons/${lessonId}/export`);
+      response = await fetch(resolveFetchUrl(`/lessons/${lessonId}/export`));
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       throw new ApiError(
         `Can't reach the backend at ${API_BASE_URL}. Start it and retry. (${msg})`,
+        0,
+        true
+      );
+    }
+
+    if (response.headers.get('X-Proxy-Backend-Down') === '1') {
+      throw new ApiError(
+        `Can't reach the backend at ${API_BASE_URL}. Start it and retry.`,
         0,
         true
       );

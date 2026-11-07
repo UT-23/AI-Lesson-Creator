@@ -10,3 +10,6 @@ backend/data/
 node_modules/
 frontend/dist/
 .claude/
+web/dist/
+web/.env*
+!web/.env.example
