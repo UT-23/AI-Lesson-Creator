@@ -1,6 +1,6 @@
 Read PROJECT_CONTEXT.md first for current status.
 
-# CLAUDE.md — AI Lesson Creation Tool
+# SPEC — AI Lesson Creation Tool
 
 ## What we're building
 
@@ -206,7 +206,7 @@ Given a QCIssue, LLM rewrites only the affected section (with sources available 
 * Title: HTTP Requests and Responses — Objective: Explain GET and POST methods and distinguish between 2xx, 4xx, and 5xx response status categories.
 * Title: Simple vs Compound Interest — Objective: Calculate simple and compound interest for a given principal, rate, and time, and explain why compound interest grows faster.
 
-## Working rules for Claude Code
+## Working rules for coding assistants
 
 * Explain non-obvious choices in `DECISIONS.md` (one short entry each: decision, alternatives, why).
 * Prefer simple, readable code over clever abstractions. Type hints everywhere.

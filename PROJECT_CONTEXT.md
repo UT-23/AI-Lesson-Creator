@@ -2,7 +2,7 @@
 
 Handoff file: everything needed to continue this project without the original chat.
 Every status line is marked **VERIFIED** (checked by a command/test/file read on 2026-11-07) or **ASSUMED** / **UNKNOWN**.
-Full original spec: [`CLAUDE.md`](CLAUDE.md). Design decisions with reasons: [`DECISIONS.md`](DECISIONS.md). User-facing docs: [`README.md`](README.md).
+Full original spec: [`docs/SPEC.md`](docs/SPEC.md). Design decisions with reasons: [`DECISIONS.md`](DECISIONS.md). User-facing docs: [`README.md`](README.md).
 
 ---
 

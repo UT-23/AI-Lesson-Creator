@@ -9,3 +9,4 @@ backend/data/
 *.db-shm
 node_modules/
 frontend/dist/
+.claude/

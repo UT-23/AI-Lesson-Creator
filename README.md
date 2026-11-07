@@ -2,7 +2,7 @@
 
 Give it a lesson title and a learning objective. It researches the topic (web, YouTube, books), writes a cited lesson that fits in 45 minutes, and runs two independent QC audits: QC1 for research and factual accuracy, QC2 for instructional quality. An instructor can then edit, apply QC fixes, preview and export.
 
-- Spec: [`CLAUDE.md`](CLAUDE.md)
+- Spec: [`docs/SPEC.md`](docs/SPEC.md)
 - Design decisions, each with alternatives and reasons: [`DECISIONS.md`](DECISIONS.md)
 - Sample outputs for both test lessons: [`samples/`](samples/)
 
@@ -152,7 +152,7 @@ See [Manual fact verification of the samples](#manual-fact-verification-of-the-s
 
 - **Libraries:** FastAPI, Pydantic, pydantic-settings, SQLModel/SQLAlchemy, httpx, tenacity, google-genai, youtube-transcript-api, Streamlit, pandas, pytest, uvicorn.
 - **APIs:** Google Gemini API, Tavily Search/Extract, YouTube Data API v3, Google Books API, Open Library.
-- **AI assistance:** this project was designed and written with Claude Code (Anthropic) under the author's direction and review; architecture decisions and the reasons for them are in `DECISIONS.md`.
+- **AI assistance:** AI coding assistants were used for implementation support; architecture and design decisions are documented in DECISIONS.md.
 
 ---
 
