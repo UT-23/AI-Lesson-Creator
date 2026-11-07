@@ -22,7 +22,7 @@ from sqlmodel import select
 
 from app.models import QCLayer, Source, SourceType
 from app.pipeline.context import StepContext
-from app.pipeline.numeric import check_text
+from app.pipeline.numeric import check_problem_results, check_text
 from app.pipeline.passages import select_passages, topic_keywords
 from app.pipeline.qc_store import model_used, qc_model_for, save_qc_report, write_report_files
 from app.providers.llm import generate_structured
@@ -260,6 +260,21 @@ def run_qc_factual(ctx: StepContext) -> dict[str, Any]:
                 claim_or_text=check.expression, evidence=check.detail,
                 suggestion="Recompute this step; the numbers in the text do not match."))
 
+    # Whole-problem check: stated results vs the problem's own P, r, t (n), recomputed in Python.
+    formula_checks = []
+    for section in content.sections:
+        formula_checks += check_problem_results(section.content_md, section.id)
+    for n, q in enumerate(content.knowledge_check, start=1):
+        formula_checks += check_problem_results(f"{q.q}\nAnswer: {q.answer}\n{q.explanation}", f"quiz-Q{n}")
+    for f in formula_checks:
+        compound = f.expected["compound amount"]
+        issues.append(QCIssueDraft(
+            severity="critical", category="wrong_result", location=f.location, claim_or_text=f.line,
+            evidence=f.detail,
+            suggestion=(f"Replace {f.stated:,.2f} with the value recomputed from the problem's own inputs: "
+                        f"compound amount {compound:,.2f} (simple amount {f.expected['simple amount']:,.2f}); "
+                        "fix any intermediate step that led to the wrong figure.")))
+
     counts: dict[str, int] = {}
     for row in table:
         counts[row["verdict"]] = counts.get(row["verdict"], 0) + 1
@@ -269,7 +284,8 @@ def run_qc_factual(ctx: StepContext) -> dict[str, Any]:
     summary = (f"{counts.get('supported', 0)} of {total} claims supported ({score:.0f}%); "
                f"{counts.get('partially_supported', 0)} partial, {counts.get('unsupported', 0)} unsupported, "
                f"{counts.get('contradicted', 0)} contradicted, {len(uncited)} uncited. "
-               f"{sum(c.ok for c in numeric)}/{len(numeric)} calculations recomputed correctly. "
+               f"{sum(c.ok for c in numeric)}/{len(numeric)} calculations recomputed correctly; "
+               f"{len(formula_checks)} stated result(s) contradict their own inputs. "
                f"{len(result.contradictions)} contradiction(s), {len(gaps)} outcome gap(s). Judge: {model}.")
     details = {
         "method": "claims extracted in code; one batched LLM verdict call; quotes verified in code",
@@ -277,6 +293,8 @@ def run_qc_factual(ctx: StepContext) -> dict[str, Any]:
         "counts": counts,
         "claims": table,
         "numeric_checks": [asdict(c) for c in numeric],
+        "result_checks": [{"location": f.location, "line": f.line, "stated": f.stated, "detail": f.detail}
+                          for f in formula_checks],
         "source_audit": audit,
         "outcome_gaps": gaps,
         "contradictions": [c.model_dump() for c in result.contradictions],

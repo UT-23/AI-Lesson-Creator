@@ -105,3 +105,86 @@ def check_text(text: str, location: str) -> list[NumericCheck]:
                                        values=[round(v, 6) for v in values],  # type: ignore[arg-type]
                                        ok=ok, detail=worst or "matches"))
     return checks
+
+
+# ---------------------------------------------------------------------------
+# Formula-level check for interest problems
+# ---------------------------------------------------------------------------
+# `check_text` only sees one line where BOTH sides of "=" are numbers. A worked
+# problem usually spreads over several lines ("P = 8500, r = 0.003, t = 5" ...
+# "Final Answer: £8,628.79"), so the inputs are never on the same line as the
+# answer. This check reads a whole problem, collects its variable bindings,
+# recomputes simple and compound results in Python, and flags stated money
+# results that match none of them.
+
+_BINDING = re.compile(r"(?<![A-Za-z])([Prtn])\s*=\s*((?:\d[\d,]*(?:\.\d+)?\s*%?\s*=\s*)*\d[\d,]*(?:\.\d+)?\s*%?)(?!\s*[×*·x(\^\d])")
+_PROBLEM_START = re.compile(r"^\s*(#{2,4}\s|\*\*(?:problem|example|task|exercise)|(?:problem|example|task|question|q)\s*\d)", re.I)
+_RESULT_LINE = re.compile(r"final answer|answer|yields|results? in|gives|total|final value|=\s*[£$€]", re.I)
+_MONEY = re.compile(r"[£$€]\s?(\d[\d,]*(?:\.\d+)?)|=\s*(\d[\d,]*\.\d{2})\b")
+
+
+def _to_number(raw: str) -> float:
+    last = re.split(r"\s*=\s*", raw.strip())[-1]  # "0.3% = 0.003" -> "0.003"
+    pct = last.endswith("%")
+    value = float(last.rstrip("% ").replace(",", ""))
+    return value / 100 if pct else value
+
+
+@dataclass
+class FormulaCheck:
+    location: str
+    bindings: dict[str, float]
+    stated: float
+    expected: dict[str, float]
+    line: str
+
+    @property
+    def detail(self) -> str:
+        p, r, t, n = (self.bindings.get(k) for k in ("P", "r", "t", "n"))
+        compound = self.expected["compound amount"]
+        return (f"With P={p:g}, r={r:g}, t={t:g}" + (f", n={n:g}" if n else "") +
+                f": compound amount = {compound:,.2f} (interest {compound - p:,.2f}), "  # type: ignore[operator]
+                f"simple amount = {self.expected['simple amount']:,.2f} "
+                f"(interest {self.expected['simple interest']:,.2f}); the text states {self.stated:,.2f}")
+
+
+def _expected(b: dict[str, float]) -> dict[str, float]:
+    p, r, t = b["P"], b["r"], b["t"]
+    n = b.get("n", 1.0) or 1.0
+    compound = p * (1 + r / n) ** (n * t)
+    return {"compound amount": compound, "compound interest": compound - p,
+            "simple amount": p * (1 + r * t), "simple interest": p * r * t}
+
+
+def check_problem_results(text: str, location: str) -> list[FormulaCheck]:
+    """Flag stated money results of a worked problem that don't match its own P, r, t (and n)."""
+    problems: list[FormulaCheck] = []
+    bindings: dict[str, float] = {}
+    for raw_line in text.splitlines():
+        line = re.sub(r"\[S\d+(?:\s*[,;]\s*S\d+)*\]", " ", raw_line)
+        if _PROBLEM_START.search(line):
+            bindings = {}  # a new problem starts: forget the previous one's variables
+        for name, raw in _BINDING.findall(line):
+            try:
+                bindings[name] = _to_number(raw)
+            except ValueError:
+                continue
+        if not {"P", "r", "t"} <= bindings.keys() or not _RESULT_LINE.search(line):
+            continue
+        if not (0 < bindings["r"] < 1 and 0 < bindings["t"] <= 100 and bindings["P"] > 0):
+            continue  # implausible bindings (e.g. r written as 5 not 0.05): don't guess
+        expected = _expected(bindings)
+        for match in _MONEY.finditer(line):
+            stated = float((match.group(1) or match.group(2)).replace(",", ""))
+            if abs(stated - bindings["P"]) < 0.005:
+                continue  # restating the principal
+            # Tolerance = one cent + the error from rounding the growth factor to 4 decimals (P × 0.00005).
+            # (A relative 1e-4 tolerance was too loose: ±£0.86 on £8,628 let £8,628.79 pass for £8,628.27.)
+            tolerance = 0.011 + bindings["P"] * 0.00005
+            if any(abs(stated - v) <= tolerance for v in expected.values()):
+                continue
+            problems.append(FormulaCheck(location, dict(bindings), stated, expected, line.strip()))
+    unique: dict[float, FormulaCheck] = {}
+    for p in problems:
+        unique.setdefault(round(p.stated, 2), p)  # one finding per wrong figure per block
+    return list(unique.values())

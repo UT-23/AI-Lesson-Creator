@@ -120,3 +120,24 @@ def test_retry_policy_retries_transient_errors_only() -> None:
     with pytest.raises(ProviderError):
         quota()
     assert calls["n"] == 1  # not retried
+
+
+def test_problem_result_check_catches_wrong_final_answer() -> None:
+    from app.pipeline.numeric import check_problem_results
+
+    text = ("**Problem:** £8,500 at 0.3% compound for 5 years.\n"
+            "* **Step 1:** Here, P = 8500, r = 0.3% = 0.003, and t = 5 [S5].\n"
+            "* **Final Answer:** £8,628.79.")
+    found = check_problem_results(text, "sec-3")
+    assert len(found) == 1 and found[0].stated == 8628.79
+    assert "compound amount = 8,628.27" in found[0].detail
+
+
+def test_problem_result_check_accepts_correct_and_rounded_answers() -> None:
+    from app.pipeline.numeric import check_problem_results
+
+    text = ("**Problem:** $10,000 at 5% compound for 3 years.\n"
+            "* **Step 1:** P = 10000, r = 5% = 0.05, t = 3.\n"
+            "* **Final Answer:** $11,576.25 (yielding $1,576.25 interest compared to $1,500 under simple interest).\n"
+            "**Problem:** rounded factor.\n* P = 10000, r = 0.05, t = 3\n* **Final Answer:** $11,576.00")
+    assert check_problem_results(text, "sec-3") == []
