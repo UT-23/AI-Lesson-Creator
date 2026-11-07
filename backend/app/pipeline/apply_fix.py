@@ -15,7 +15,7 @@ from app.config import Settings
 from app.models import QCIssue, SourceType
 from app.pipeline.passages import select_passages, topic_keywords
 from app.providers.llm import LLMProvider, generate_structured
-from app.schemas import LessonContent, SectionRewrite, extract_citations
+from app.schemas import LessonContent, QuizItem, SectionRewrite, extract_citations
 from app.versions import latest_version, lesson_sources
 
 FIX_SYSTEM = ("You are an expert instructional designer revising one section of a lesson. Change only what is "
@@ -36,12 +36,62 @@ def section_for_issue(issue: QCIssue, content: LessonContent) -> str:
         "Edit the lesson directly instead.")
 
 
+def quiz_text(item: QuizItem) -> str:
+    options = "\n".join(f"- {o}" for o in item.options)
+    return f"Q: {item.q}\nOptions:\n{options}\nAnswer: {item.answer}\nExplanation: {item.explanation}\nOutcome: {item.outcome}"
+
+
+def preview_quiz_fix(issue: QCIssue, content: LessonContent, index: int, citable: dict, llm: LLMProvider,  # type: ignore[type-arg]
+                     settings: Settings, version_no: int) -> dict[str, Any]:
+    """Rewrite ONE knowledge-check item (question, options, answer, explanation) to resolve the issue."""
+    item = content.knowledge_check[index]
+    allowed = set(citable)
+    prompt = f"""Rewrite ONE knowledge-check question of a lesson to resolve a reviewer's issue.
+
+QUESTION Q{index + 1} (outcome: {item.outcome}):
+{quiz_text(item)}
+
+ISSUE {issue.issue_id} ({issue.severity}, {issue.category}):
+Text: {issue.claim_or_text}
+Evidence: {issue.evidence}
+Suggestion: {issue.suggestion}
+
+Return the corrected item as JSON with q, options (exactly 4, distinct), answer (must equal one option exactly),
+explanation (cite only these ids as [S#]: {', '.join(sorted(allowed, key=lambda s: int(s[1:])))}) and outcome
+(keep it exactly: "{item.outcome}"). Change only what the issue requires; recompute any numbers carefully."""
+
+    def check(new: QuizItem) -> list[str]:
+        problems = []
+        bad = sorted(set(extract_citations(new.explanation)) - allowed)
+        if bad:
+            problems.append(f"Unknown source ids cited: {', '.join(bad)}.")
+        if new.outcome != item.outcome:
+            problems.append(f'Keep the outcome exactly: "{item.outcome}".')
+        return problems
+
+    new = generate_structured(llm, prompt, QuizItem, system=FIX_SYSTEM, max_repairs=settings.llm_max_repairs,
+                              check=check)
+    return {"issue_id": issue.id, "kind": "quiz", "quiz_index": index, "section_id": None,
+            "heading": f"Knowledge check Q{index + 1}", "base_version_no": version_no,
+            "before": quiz_text(item), "after": quiz_text(new), "after_item": new.model_dump(),
+            "change_summary": f"Rewrote quiz Q{index + 1} for {issue.issue_id}.",
+            "citations_added": {}, "citations_removed": {}, "unchanged": new == item,
+            "model": getattr(llm, "last_model", None) or llm.model}
+
+
 def preview_fix(session: Session, issue: QCIssue, lesson_id: int, llm: LLMProvider,
                 settings: Settings) -> dict[str, Any]:
     version = latest_version(session, lesson_id)
     if version is None:
         raise FixNotPossible("The lesson has no version yet.")
     content = LessonContent.model_validate(version.content_json)
+    quiz = re.search(r"quiz-Q(\d+)", issue.location or "")
+    if quiz:
+        index = int(quiz.group(1)) - 1
+        if not 0 <= index < len(content.knowledge_check):
+            raise FixNotPossible(f"Quiz question Q{index + 1} no longer exists in the latest version.")
+        citable = {sid: s for sid, s in lesson_sources(session, lesson_id).items() if s.type != SourceType.book}
+        return preview_quiz_fix(issue, content, index, citable, llm, settings, version.version_no)
     section_id = section_for_issue(issue, content)
     section = next(s for s in content.sections if s.id == section_id)
 

@@ -4,7 +4,7 @@ from sqlmodel import Session, col, select
 
 from app.models import LessonVersion, Source, VersionAuthor
 from app.pipeline.render import render_markdown
-from app.schemas import LessonContent, normalize_citations
+from app.schemas import LessonContent, QuizItem, normalize_citations
 
 
 def latest_version(session: Session, lesson_id: int) -> LessonVersion | None:
@@ -48,3 +48,11 @@ def with_section_text(content: LessonContent, section_id: str, content_md: str,
         for s in content.sections
     ]
     return content.model_copy(update={"sections": sections})
+
+
+def with_quiz_item(content: LessonContent, index: int, item: QuizItem) -> LessonContent:
+    if not 0 <= index < len(content.knowledge_check):
+        raise IndexError(index)
+    fixed = item.model_copy(update={"explanation": normalize_citations(item.explanation)})
+    quiz = [fixed if i == index else q for i, q in enumerate(content.knowledge_check)]
+    return content.model_copy(update={"knowledge_check": quiz})

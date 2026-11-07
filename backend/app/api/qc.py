@@ -17,8 +17,8 @@ from app.pipeline.qc_store import report_payload
 from app.providers import Providers
 from app.providers.errors import ProviderError
 from app.providers.llm import LLMOutputError
-from app.schemas import LessonContent
-from app.versions import append_version, latest_version, with_section_text
+from app.schemas import LessonContent, QuizItem
+from app.versions import append_version, latest_version, with_quiz_item, with_section_text
 
 router = APIRouter(tags=["qc"])
 STEP_FOR_LAYER = {"factual": "qc_factual", "instructional": "qc_instructional"}
@@ -70,24 +70,35 @@ def preview(issue_id: int, session: Session = Depends(get_session), providers: P
 
 
 class ApplyFix(BaseModel):
-    section_id: str
-    content_md: str
+    section_id: str | None = None
+    content_md: str | None = None
+    quiz_index: int | None = None  # 0-based; with quiz_item, replaces one knowledge-check question
+    quiz_item: QuizItem | None = None
 
 
 @router.post("/qc/issues/{issue_id}/apply")
 def apply(issue_id: int, body: ApplyFix, session: Session = Depends(get_session)) -> dict[str, Any]:
     issue, report = _issue(session, issue_id)
-    if not body.content_md.strip():
-        raise HTTPException(422, "The fixed section cannot be empty.")
     version = latest_version(session, report.lesson_id)
     if version is None:
         raise HTTPException(409, "No lesson version to fix.")
-    try:
-        content = with_section_text(LessonContent.model_validate(version.content_json), body.section_id, body.content_md)
-    except KeyError:
-        raise HTTPException(404, f"Section {body.section_id} does not exist.") from None
+    content = LessonContent.model_validate(version.content_json)
+    if body.quiz_index is not None and body.quiz_item is not None:
+        try:
+            content = with_quiz_item(content, body.quiz_index, body.quiz_item)
+        except IndexError:
+            raise HTTPException(404, f"Quiz question Q{body.quiz_index + 1} does not exist.") from None
+        where = f"quiz Q{body.quiz_index + 1}"
+    elif body.section_id and body.content_md and body.content_md.strip():
+        try:
+            content = with_section_text(content, body.section_id, body.content_md)
+        except KeyError:
+            raise HTTPException(404, f"Section {body.section_id} does not exist.") from None
+        where = body.section_id
+    else:
+        raise HTTPException(422, "Send section_id + content_md, or quiz_index + quiz_item.")
     new = append_version(session, report.lesson_id, content, VersionAuthor.qc_fix,
-                         f"QC fix for {issue.issue_id} ({issue.category}) in {body.section_id}")
+                         f"QC fix for {issue.issue_id} ({issue.category}) in {where}")
     issue.status = IssueStatus.applied
     session.add(issue)
     session.commit()

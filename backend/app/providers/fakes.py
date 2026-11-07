@@ -183,6 +183,11 @@ class FakeLLM(LLMProvider):
         return {"content_md": f"[FAKE] Rewritten section {cited[0] if cited else ''}.",
                 "change_summary": "[FAKE] rewrote the section."}
 
+    def _build_QuizItem(self, prompt: str) -> dict[str, Any]:
+        outcome = re.search(r'keep it exactly: "([^"]*)"', prompt)
+        return {"q": "[FAKE] Corrected question?", "options": ["Right", "Wrong A", "Wrong B", "Wrong C"],
+                "answer": "Right", "explanation": "[FAKE] corrected.", "outcome": outcome.group(1) if outcome else ""}
+
     def _build_DomainTiers(self, prompt: str) -> dict[str, Any]:
         names = _list_block(prompt, "NAMES")
         return {"items": [{"name": n.split(" (page:")[0], "tier": 3, "reason": "[FAKE] assessed"} for n in names]}

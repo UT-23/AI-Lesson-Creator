@@ -181,3 +181,25 @@ def test_generation_warnings_are_stored_when_soft_problems_persist(client: TestC
     out = step_map(client, lesson_id)["generate"]
     assert out["status"] == "done"
     assert any("below the 35-45 minute target" in w for w in out["output_json"]["warnings"])
+
+
+def test_quiz_issue_can_be_previewed_and_applied(client: TestClient, session: Session) -> None:
+    from app.models import QCIssue, QCReport
+
+    lesson_id = create_lesson(client)
+    client.post(f"/lessons/{lesson_id}/run")
+    report = session.exec(select(QCReport).where(QCReport.layer == "factual")).first()
+    issue = QCIssue(report_id=report.id, issue_id="F-99", severity="critical", category="wrong_result",  # type: ignore[arg-type]
+                    location="quiz-Q1", claim_or_text="wrong answer", suggestion="recompute")
+    session.add(issue)
+    session.commit()
+
+    preview = client.post(f"/qc/issues/{issue.id}/preview-fix").json()
+    assert preview["kind"] == "quiz" and preview["quiz_index"] == 0 and "Corrected question" in preview["after"]
+    applied = client.post(f"/qc/issues/{issue.id}/apply",
+                          json={"quiz_index": 0, "quiz_item": preview["after_item"]}).json()
+    version = session.exec(select(LessonVersion).where(LessonVersion.version_no == applied["version_no"])).one()
+    assert version.author.value == "qc_fix" and version.content_json["knowledge_check"][0]["answer"] == "Right"
+    # quiz edit through the normal edit path
+    edit = client.put(f"/lessons/{lesson_id}/content", json={"quiz": {"1": preview["after_item"]}})
+    assert edit.status_code == 200

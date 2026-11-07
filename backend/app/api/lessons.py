@@ -13,8 +13,8 @@ from app.export.exporter import build_export
 from app.models import Lesson, LessonStatus, VersionAuthor
 from app.pipeline.orchestrator import RunRejected, create_steps, get_steps, run_pipeline, start_run
 from app.providers import Providers
-from app.schemas import LessonContent, LessonCreate, LessonCreatedOut, RunAccepted, StepOut, extract_citations
-from app.versions import append_version, latest_version, lesson_sources, with_section_text
+from app.schemas import LessonContent, LessonCreate, QuizItem, LessonCreatedOut, RunAccepted, StepOut, extract_citations
+from app.versions import append_version, latest_version, lesson_sources, with_quiz_item, with_section_text
 
 router = APIRouter(prefix="/lessons", tags=["lessons"])
 
@@ -95,7 +95,8 @@ class SectionEdit(BaseModel):
 
 
 class ContentEdit(BaseModel):
-    sections: dict[str, SectionEdit]
+    sections: dict[str, SectionEdit] = {}
+    quiz: dict[int, QuizItem] = {}  # 0-based index -> full replacement question
     note: str | None = None
 
 
@@ -106,8 +107,8 @@ def edit_content(body: ContentEdit, lesson: Lesson = Depends(get_lesson_or_404),
     version = latest_version(session, lesson.id)  # type: ignore[arg-type]
     if version is None:
         raise HTTPException(409, "There is no lesson version to edit yet — run the pipeline first.")
-    if not body.sections:
-        raise HTTPException(422, "No sections to save.")
+    if not body.sections and not body.quiz:
+        raise HTTPException(422, "Nothing to save.")
     content = LessonContent.model_validate(version.content_json)
     known = set(lesson_sources(session, lesson.id))  # type: ignore[arg-type]
     for section_id, edit in body.sections.items():
@@ -120,8 +121,17 @@ def edit_content(body: ContentEdit, lesson: Lesson = Depends(get_lesson_or_404),
             content = with_section_text(content, section_id, edit.content_md, edit.heading)
         except KeyError:
             raise HTTPException(404, f"Section {section_id} does not exist.") from None
+    for index, item in body.quiz.items():
+        unknown = sorted(set(extract_citations(item.explanation)) - known)
+        if unknown:
+            raise HTTPException(422, f"Quiz Q{index + 1} cites unknown source ids: {', '.join(unknown)}.")
+        try:
+            content = with_quiz_item(content, index, item)
+        except IndexError:
+            raise HTTPException(404, f"Quiz question Q{index + 1} does not exist.") from None
+    edited = [*body.sections, *(f"quiz Q{i + 1}" for i in body.quiz)]
     new = append_version(session, lesson.id, content, VersionAuthor.instructor,  # type: ignore[arg-type]
-                         body.note or f"Instructor edited {', '.join(body.sections)}")
+                         body.note or f"Instructor edited {', '.join(edited)}")
     session.commit()
     return {"version_no": new.version_no, "message": f"Saved as version {new.version_no}."}
 
