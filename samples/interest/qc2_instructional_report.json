@@ -1,0 +1,257 @@
+{
+  "report_id": 4,
+  "layer": "instructional",
+  "lesson_id": 2,
+  "lesson_version_no": 1,
+  "score": 96.7,
+  "summary": "This lesson provides a clear, structured introduction to simple and compound interest for adult beginners. It effectively balances conceptual explanations with practical examples and includes a variety of practice tasks and quiz questions to reinforce learning. Rubric average 4.8/5. Measured time 23.3 of 45 min. Reviewer: gemini-3.1-flash-lite.",
+  "created_at": "2026-11-07T15:17:13.274089+00:00",
+  "details": {
+    "method": "one LLM review call (no access to QC1) + code: quiz mapping, coverage gaps, time budget",
+    "model": "gemini-3.1-flash-lite",
+    "coverage_matrix": [
+      {
+        "outcome": "Calculate simple interest for a given principal, rate, and time.",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-2"
+          ],
+          "note": "Clear definition of variables and formula provided."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-3"
+          ],
+          "note": "Two distinct examples provided."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "Two practice tasks included."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q1",
+            "Q2"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      },
+      {
+        "outcome": "Calculate compound interest for a given principal, rate, and time.",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-2"
+          ],
+          "note": "Formula and conceptual basis explained."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-3"
+          ],
+          "note": "Two distinct examples provided."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "Two practice tasks included."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q3",
+            "Q4"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      },
+      {
+        "outcome": "Explain why compound interest grows faster.",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-2"
+          ],
+          "note": "Conceptual difference between linear and exponential growth is well-defined."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-3"
+          ],
+          "note": "Example 4 explicitly compares the final interest amounts."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "Task 5 requires a written explanation."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q5",
+            "Q6"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      }
+    ],
+    "verb_alignment": [
+      {
+        "outcome": "Calculate simple interest for a given principal, rate, and time.",
+        "verb": "Calculate",
+        "bloom_level": "apply",
+        "aligned": true,
+        "evidence": "The learner is required to use the formula I=Prt and A=P(1+rt) in both practice tasks and quiz questions.",
+        "suggestion": "None needed."
+      },
+      {
+        "outcome": "Calculate compound interest for a given principal, rate, and time.",
+        "verb": "Calculate",
+        "bloom_level": "apply",
+        "aligned": true,
+        "evidence": "The learner must perform exponentiation and multiplication in practice tasks and quiz questions.",
+        "suggestion": "None needed."
+      },
+      {
+        "outcome": "Explain why compound interest grows faster.",
+        "verb": "Explain",
+        "bloom_level": "understand",
+        "aligned": true,
+        "evidence": "Task 5 requires the learner to synthesize the concept in their own words, and quiz questions Q5/Q6 test the underlying logic.",
+        "suggestion": "None needed."
+      }
+    ],
+    "rubric": [
+      {
+        "criterion": "clarity",
+        "score": 5,
+        "justification": "The language is accessible and professional, ideal for adult learners."
+      },
+      {
+        "criterion": "structure_flow",
+        "score": 5,
+        "justification": "Logical progression from hook to concept to practice."
+      },
+      {
+        "criterion": "jargon_before_use",
+        "score": 5,
+        "justification": "All terms like principal and compounding are defined before they are used in formulas."
+      },
+      {
+        "criterion": "example_quality",
+        "score": 4,
+        "justification": "Examples are clear, though the currency switch from $ to \u00a3 in examples 1 and 3 is slightly distracting."
+      },
+      {
+        "criterion": "practical_relevance",
+        "score": 5,
+        "justification": "The lesson connects math to real-world financial decisions."
+      },
+      {
+        "criterion": "outcome_alignment",
+        "score": 5,
+        "justification": "All outcomes are directly supported by practice and assessment."
+      }
+    ],
+    "rubric_average": 4.83,
+    "time_budget": {
+      "budget_min": 45,
+      "wpm": 200,
+      "total_declared_min": 25.0,
+      "total_computed_min": 23.3,
+      "over_budget": false,
+      "sections": [
+        {
+          "id": "sec-1",
+          "type": "hook",
+          "heading": "The Magic of Growing Money",
+          "declared_min": 1.0,
+          "computed_min": 0.5,
+          "basis": "95 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-2",
+          "type": "concept",
+          "heading": "Understanding Interest Concepts, Formulas, and Common Pitfalls",
+          "declared_min": 3.0,
+          "computed_min": 2.3,
+          "basis": "462 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-3",
+          "type": "example",
+          "heading": "Worked Examples for Simple and Compound Interest",
+          "declared_min": 2.0,
+          "computed_min": 2.0,
+          "basis": "400 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-4",
+          "type": "video",
+          "heading": "Video Resources on Interest Mechanics",
+          "declared_min": 5.0,
+          "computed_min": 5.0,
+          "basis": "reading + 2 video(s) at real duration",
+          "flags": []
+        },
+        {
+          "id": "sec-5",
+          "type": "activity",
+          "heading": "Practice Exercises and Applied Explanations",
+          "declared_min": 8.0,
+          "computed_min": 8.0,
+          "basis": "declared activity time (at least the reading time)",
+          "flags": []
+        },
+        {
+          "id": "sec-6",
+          "type": "knowledge_check",
+          "heading": "Knowledge Check Instructions",
+          "declared_min": 5.0,
+          "computed_min": 5.0,
+          "basis": "declared time, at least reading + 0.5 min x 6 question(s)",
+          "flags": []
+        },
+        {
+          "id": "sec-7",
+          "type": "summary",
+          "heading": "Lesson Summary",
+          "declared_min": 1.0,
+          "computed_min": 0.5,
+          "basis": "102 words at 200 wpm",
+          "flags": []
+        }
+      ],
+      "flags": []
+    }
+  },
+  "issues": [
+    {
+      "category": "consistency",
+      "issue_id": "I-1",
+      "claim_or_text": "Switching between \u00a3 and $ in examples.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "minor",
+      "id": 58,
+      "location": "sec-3",
+      "evidence": "",
+      "suggestion": "Standardize all examples to one currency to avoid unnecessary cognitive load for the learner."
+    }
+  ]
+}

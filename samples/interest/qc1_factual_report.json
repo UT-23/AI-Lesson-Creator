@@ -1,0 +1,1703 @@
+{
+  "report_id": 5,
+  "layer": "factual",
+  "lesson_id": 2,
+  "lesson_version_no": 1,
+  "score": 42.6,
+  "summary": "29 of 68 claims supported (43%); 27 partial, 5 unsupported, 0 contradicted, 7 uncited. 21/23 calculations recomputed correctly. 0 contradiction(s), 0 outcome gap(s). Judge: gemini-3.1-flash-lite.",
+  "created_at": "2026-11-07T15:19:55.662627+00:00",
+  "details": {
+    "method": "claims extracted in code; one batched LLM verdict call; quotes verified in code",
+    "model": "gemini-3.1-flash-lite",
+    "counts": {
+      "partially_supported": 27,
+      "supported": 29,
+      "unsupported": 5,
+      "uncited": 7
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "location": "sec-1",
+        "text": "Imagine you place 10,000 into a savings account earning a 5 percent annual return .",
+        "sids": [
+          "S7"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S7",
+        "evidence_quote": "If a loan has an initial principal of $10,000 and an interest rate of 2 percent per year... Similarly, if an individual deposits $10,000 into a savings account with the same interest rate",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source uses the example of depositing 10,000 at a specific interest rate."
+      },
+      {
+        "id": "C2",
+        "location": "sec-1",
+        "text": "Over several years, that money will grow, but the exact way it grows depends entirely on how the bank calculates your rewards .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "The difference between simple and compound interest is that simple interest is calculated using only the original amount whereas compound interest works out the interest on a previous amount as well.",
+        "quote_verified": true,
+        "explanation": "The source explains that the growth depends on whether interest is calculated on the original amount or previous amounts."
+      },
+      {
+        "id": "C3",
+        "location": "sec-1",
+        "text": "Some accounts add earnings only on your original starting amount, while others reward you on your starting amount plus every dollar of earnings you have accumulated along the way , .",
+        "sids": [
+          "S5",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "Simple interest is calculated on the original (principal) amount, whereas compound interest is calculated on the original amount and on the interest already accumulated on it.",
+        "quote_verified": true,
+        "explanation": "The source explicitly defines the difference between simple and compound interest calculation methods."
+      },
+      {
+        "id": "C4",
+        "location": "sec-1",
+        "text": "Understanding this distinction is one of the most powerful tools in personal finance , helping you decide how to manage long-term savings and evaluate the true cost of borrowing money .",
+        "sids": [
+          "S7",
+          "S4"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S4",
+        "evidence_quote": "Understanding this distinction is one of the most powerful tools in personal finance, helping you decide how to manage long-term savings and evaluate the true cost of borrowing money.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source highlights the importance of understanding this distinction for financial management."
+      },
+      {
+        "id": "C5",
+        "location": "sec-2",
+        "text": "The principal is the original amount of money deposited into an account or borrowed on a loan .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "The amount of money that is initially invested or borrowed is called the principal.",
+        "quote_verified": true,
+        "explanation": "The source defines principal as the initial amount invested or borrowed."
+      },
+      {
+        "id": "C6",
+        "location": "sec-2",
+        "text": "The interest rate is the percentage used to determine how fast the balance grows over a set period, usually expressed annually and converted into a decimal form for calculations .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "The speed at which the interest grows is called the rate. All rates are expressed as percentages.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source defines the rate as the speed of interest growth and notes it is expressed as a percentage."
+      },
+      {
+        "id": "C7",
+        "location": "sec-2",
+        "text": "Time refers to the duration the money is invested or borrowed, typically expressed in years .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "How long money is being invested or borrowed is called time. The amount of time is measured in one year",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source defines time as the duration of the investment or loan, measured in years."
+      },
+      {
+        "id": "C8",
+        "location": "sec-2",
+        "text": "Simple and compound interest represent two distinct ways to calculate these earnings .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "Simple interest is calculated on the original (principal) amount, whereas compound interest is calculated on the original amount and on the interest already accumulated on it.",
+        "quote_verified": true,
+        "explanation": "The source identifies these as the two distinct ways to calculate earnings."
+      },
+      {
+        "id": "C9",
+        "location": "sec-2",
+        "text": "Simple interest is calculated solely on the original principal amount .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "Simple interest is calculated using only the original amount",
+        "quote_verified": true,
+        "explanation": "The source states simple interest is calculated solely on the original principal."
+      },
+      {
+        "id": "C10",
+        "location": "sec-2",
+        "text": "Because you always earn rewards on the exact same starting balance, simple interest grows linearly, creating steady and predictable increases over time .",
+        "sids": [
+          "S4"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Simple interest is calculated only on the original principal, which leads to steady, predictable growth or borrowing costs over time.",
+        "quote_verified": true,
+        "explanation": "The source confirms simple interest leads to steady, predictable, linear growth."
+      },
+      {
+        "id": "C11",
+        "location": "sec-2",
+        "text": "The formula for the final value or total amount including simple interest is expressed as A = P(1 + rt), where P is the principal, r is the annual interest rate as a decimal, and t is the time in years , .",
+        "sids": [
+          "S5",
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "Here we use the formula A=P (1+rt)",
+        "quote_verified": true,
+        "explanation": "The source provides the formula A = P(1 + rt) for simple interest."
+      },
+      {
+        "id": "C12",
+        "location": "sec-2",
+        "text": "Alternatively, the total interest earned alone can be calculated as I = Prt .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "the formula for simple interest is {eq}I=PRT. {/eq}",
+        "quote_verified": true,
+        "explanation": "The source provides the formula I = Prt for interest earned."
+      },
+      {
+        "id": "C13",
+        "location": "sec-2",
+        "text": "Compound interest is calculated on both the original principal and the accumulated interest from previous periods .",
+        "sids": [
+          "S4"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest refers to a process where interest is calculated not only on the original principal but also on the accumulated interest from previous periods.",
+        "quote_verified": true,
+        "explanation": "The source defines compound interest as being calculated on principal and accumulated interest."
+      },
+      {
+        "id": "C14",
+        "location": "sec-2",
+        "text": "This creates a snowball effect often described as earning \"interest on interest,\" where each compounding period adds interest to a growing balance , .",
+        "sids": [
+          "S4",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "This results in a snowball effect, where the total amount grows at an increasing rate over time.",
+        "quote_verified": true,
+        "explanation": "The source describes the snowball effect of compound interest."
+      },
+      {
+        "id": "C15",
+        "location": "sec-2",
+        "text": "As a result, compound interest grows faster and produces exponential growth over time compared to the linear growth of simple interest .",
+        "sids": [
+          "S4"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S4",
+        "evidence_quote": "Simple interest grows linearly, while compound interest benefits from \u201cinterest on interest.\u201d This makes compound interest more powerful for long-term investing",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source contrasts the linear growth of simple interest with the exponential growth of compound interest."
+      },
+      {
+        "id": "C16",
+        "location": "sec-2",
+        "text": "The formula for compound interest to find the final accumulated amount A is A = P(1 + r)^t, where P is the principal, r is the annual interest rate as a decimal, and t is the time in years .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "unsupported",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "The provided source S8 does not explicitly state the formula A = P(1 + r)^t in the excerpt."
+      },
+      {
+        "id": "C17",
+        "location": "sec-2",
+        "text": "With simple interest, your earnings remain constant in each period because the base amount never changes .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S8",
+        "evidence_quote": "With simple interest, your earnings remain constant regardless of how long you save.",
+        "quote_verified": true,
+        "explanation": "The source states earnings remain constant with simple interest."
+      },
+      {
+        "id": "C18",
+        "location": "sec-2",
+        "text": "For example, if you deposit 10,000 at a 5 percent simple interest rate, your earnings are locked at 500 every single year .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "unsupported",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "The source S8 mentions a 10,000 deposit at 5% for 3 years but does not explicitly state the earnings are locked at 500 every single year."
+      },
+      {
+        "id": "C19",
+        "location": "sec-2",
+        "text": "With compound interest, each year's interest is added directly to the principal balance for the next period .",
+        "sids": [
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "Compound interest is the interest on an investment or loan that is added to the principal amount, allowing for additional interest to accrue on this new total.",
+        "quote_verified": true,
+        "explanation": "The source explains that interest is added to the principal."
+      },
+      {
+        "id": "C20",
+        "location": "sec-2",
+        "text": "This accumulation accelerates your growth exponentially over long time horizons, making compound interest vastly superior for long-term investments and retirement savings , .",
+        "sids": [
+          "S4",
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest drives wealth creation by reinvesting earnings, allowing investors to create exponential growth over the long run.",
+        "quote_verified": true,
+        "explanation": "The source confirms compound interest is superior for long-term growth."
+      },
+      {
+        "id": "C21",
+        "location": "sec-2",
+        "text": "Failing to convert percentages to decimals: Always divide your percentage rate by 100 before plugging it into formulas (for example, 5% becomes 0.05) .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "It's customary for financial institutions to quote a quantity called the interest rate as a percentage. ... r is the annual interest rate in decimal form",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source implies the need to convert percentages to decimals for formulas."
+      },
+      {
+        "id": "C22",
+        "location": "sec-2",
+        "text": "Confusing time periods: If a problem specifies months instead of years, you must convert the time into a fraction of a year by dividing the number of months by 12 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "We use 6 divided by 12 because that indicated half a year, which is equivalent to 6 months.",
+        "quote_verified": true,
+        "explanation": "The source explains converting months to years by dividing by 12."
+      },
+      {
+        "id": "C23",
+        "location": "sec-2",
+        "text": "Applying compound formulas to simple interest scenarios: Remember that simple interest ignores accumulated past interest, whereas compound interest depends entirely on it .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "Simple interest is calculated using only the original amount whereas compound interest works out the interest on a previous amount as well.",
+        "quote_verified": true,
+        "explanation": "The source distinguishes the two based on whether they include accumulated interest."
+      },
+      {
+        "id": "C24",
+        "location": "sec-3",
+        "text": "Here, P = 1500, r = 5% = 0.05, and t = 4 .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S5",
+        "evidence_quote": "\u00a31500 is invested for 4 years at 5% per year simple interest.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides these variables in Example 1."
+      },
+      {
+        "id": "C25",
+        "location": "sec-3",
+        "text": "Step 2: Substitute the values into the formula: A = 1500 \u00d7 (1 + (0.05 \u00d7 4)) .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S5",
+        "evidence_quote": "Substituting these values into the simple interest formula A = P (1 + rt), we get: A = 1500 \u00d7 (1 + (0.05 \u00d7 4))",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source shows the substitution of variables into the formula."
+      },
+      {
+        "id": "C26",
+        "location": "sec-3",
+        "text": "Step 1: Identify variables: P = 10000, r = 2% = 0.02, t = 1 .",
+        "sids": [
+          "S7"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S7",
+        "evidence_quote": "If a loan has an initial principal of $10,000 and an interest rate of 2 percent per year... by the end of the year he or she will owe $10,200",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source uses these variables in its example."
+      },
+      {
+        "id": "C27",
+        "location": "sec-3",
+        "text": "Step 2: Use the simple interest formula for interest earned I = Prt: I = 10000 \u00d7 0.02 \u00d7 1 = 200 .",
+        "sids": [
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "he or she will end the year having gained $200.",
+        "quote_verified": true,
+        "explanation": "The source calculates the interest as 200."
+      },
+      {
+        "id": "C28",
+        "location": "sec-3",
+        "text": "Step 3: Add interest to principal to find total value A: 10000 + 200 = 10,200 .",
+        "sids": [
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "by the end of the year he or she will owe $10,200",
+        "quote_verified": true,
+        "explanation": "The source calculates the total value as 10,200."
+      },
+      {
+        "id": "C29",
+        "location": "sec-3",
+        "text": "Here, P = 8500, r = 0.3% = 0.003, and t = 5 .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S5",
+        "evidence_quote": "\u00a38500 is invested for 5 years into a bank account at 0.3% per year compound interest.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides these variables in Example 4."
+      },
+      {
+        "id": "C30",
+        "location": "sec-3",
+        "text": "Step 2: Substitute into the formula: A = 8500 \u00d7 (1 + 0.003)^5 .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S5",
+        "evidence_quote": "A = 8500 \u00d7 (1 + 0.003)^5",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source shows the substitution into the formula."
+      },
+      {
+        "id": "C31",
+        "location": "sec-3",
+        "text": "Step 1: Identify variables: P = 10000, r = 5% = 0.05, t = 3 .",
+        "sids": [
+          "S15"
+        ],
+        "verdict": "unsupported",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Source S15 does not contain the specific variable identification step for these values."
+      },
+      {
+        "id": "C32",
+        "location": "sec-3",
+        "text": "Step 2: Substitute into the compound interest formula: A = 10000 \u00d7 (1 + 0.05)^3 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "Let's use the same example: $10,000 invested at 5% for 3 years. But this time, the interest compounds annually: A = 10,000(1 + 0.05)^3",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides the substitution into the formula."
+      },
+      {
+        "id": "C33",
+        "location": "sec-3",
+        "text": "Step 3: Evaluate the expression: (1.05)^3 = 1.157625 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "(1.05)^3 = 1.157625",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides this calculation."
+      },
+      {
+        "id": "C34",
+        "location": "sec-3",
+        "text": "Step 4: Multiply by principal: A = 10000 \u00d7 1.157625 = 11,576.25 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "A = 10,000 \u00d7 1.157625 = 11,576.25",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides this calculation."
+      },
+      {
+        "id": "C35",
+        "location": "sec-3",
+        "text": "Final Answer: 11,576.25 (yielding 1,576.25 in total interest compared to 1,500 under simple interest) , .",
+        "sids": [
+          "S8",
+          "S15"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S15",
+        "evidence_quote": "A $10,000 deposit at 5 percent simple interest over three years yields $1,500 in total interest. The same deposit at 5 percent compound interest annually yields $1,576.25 over three years.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source confirms the interest amounts."
+      },
+      {
+        "id": "C36",
+        "location": "sec-4",
+        "text": "To reinforce your understanding of how simple and compound interest operate and why compounding accelerates financial growth, watch the following recommended videos , .",
+        "sids": [
+          "S15",
+          "S17"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "What is compound interest? Compound interest is often called one of the most powerful concepts in finance. Find out what it is and how it can work for you.",
+        "quote_verified": true,
+        "explanation": "The source provides educational content on compound interest."
+      },
+      {
+        "id": "C37",
+        "location": "sec-4",
+        "text": "(Investopedia): Watch how a 10,000 deposit compares across simple and compound structures over a 3-year period .",
+        "sids": [
+          "S15"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S15",
+        "evidence_quote": "A $10,000 deposit at 5 percent simple interest over three years yields $1,500 in total interest. The same deposit at 5 percent compound interest annually yields $1,576.25 over three years.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source compares the two structures."
+      },
+      {
+        "id": "C38",
+        "location": "sec-4",
+        "text": "Difference between Simple Interest and Compound Interest: Review the core definitions, formulas, and visual distinctions between linear and exponential accumulation .",
+        "sids": [
+          "S17"
+        ],
+        "verdict": "supported",
+        "source_id": "S17",
+        "evidence_quote": "This video is about the basic difference between Simple Interest and Compound Interest.",
+        "quote_verified": true,
+        "explanation": "The source covers these topics."
+      },
+      {
+        "id": "C39",
+        "location": "sec-5",
+        "text": "Convert rate: 4% = 0.04 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "All rates are expressed as percentages.",
+        "quote_verified": true,
+        "explanation": "The source implies conversion of percentages to decimals."
+      },
+      {
+        "id": "C40",
+        "location": "sec-5",
+        "text": "Use simple interest formula I = Prt: I = 4500 \u00d7 0.04 \u00d7 2 = 360 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "I = Prt",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides the formula used for the calculation."
+      },
+      {
+        "id": "C41",
+        "location": "sec-5",
+        "text": "Convert time to years: 6 months \u00f7 12 = 0.5 years .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "We use 6 divided by 12 because that indicated half a year",
+        "quote_verified": true,
+        "explanation": "The source explains the conversion of months to years."
+      },
+      {
+        "id": "C42",
+        "location": "sec-5",
+        "text": "Convert rate: 6% = 0.06 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "supported",
+        "source_id": "S3",
+        "evidence_quote": "All rates are expressed as percentages.",
+        "quote_verified": true,
+        "explanation": "The source implies conversion of percentages to decimals."
+      },
+      {
+        "id": "C43",
+        "location": "sec-5",
+        "text": "Calculate interest: I = 2000 \u00d7 0.06 \u00d7 0.5 = 60 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "I = Prt",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides the formula used for the calculation."
+      },
+      {
+        "id": "C44",
+        "location": "sec-5",
+        "text": "Identify variables: P = 5000, r = 0.04, t = 2 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "unsupported",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Source S8 does not contain this specific variable identification."
+      },
+      {
+        "id": "C45",
+        "location": "sec-5",
+        "text": "Use formula A = P(1 + r)^t: A = 5000 \u00d7 (1 + 0.04)^2 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "A = P(1 + r)^t",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides the formula."
+      },
+      {
+        "id": "C46",
+        "location": "sec-5",
+        "text": "Calculate: (1.04)^2 = 1.0816 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "(1.04)^2 = 1.0816",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides this calculation."
+      },
+      {
+        "id": "C47",
+        "location": "sec-5",
+        "text": "Identify variables: P = 2000, r = 0.05, t = 3 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "unsupported",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Source S8 does not contain this specific variable identification."
+      },
+      {
+        "id": "C48",
+        "location": "sec-5",
+        "text": "Formula: A = 2000 \u00d7 (1 + 0.05)^3 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "A = P(1 + r)^t",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides the formula."
+      },
+      {
+        "id": "C49",
+        "location": "sec-5",
+        "text": "Calculate: (1.05)^3 = 1.157625 .",
+        "sids": [
+          "S8"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "(1.05)^3 = 1.157625",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source provides this calculation."
+      },
+      {
+        "id": "C50",
+        "location": "sec-5",
+        "text": "Model Answer: Compound interest grows faster because it calculates earnings on both the original principal and all previously accumulated interest from past periods , .",
+        "sids": [
+          "S4",
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest refers to a process where interest is calculated not only on the original principal but also on the accumulated interest from previous periods.",
+        "quote_verified": true,
+        "explanation": "The source explains why compound interest grows faster."
+      },
+      {
+        "id": "C51",
+        "location": "sec-5",
+        "text": "This creates a \"snowball effect\" or \"interest on interest,\" whereas simple interest calculates earnings solely on the original starting principal every year, resulting in flat, linear growth , .",
+        "sids": [
+          "S4",
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Simple interest is calculated solely on the original principal amount, resulting in fixed, predictable growth.",
+        "quote_verified": true,
+        "explanation": "The source contrasts compound interest with simple interest."
+      },
+      {
+        "id": "C52",
+        "location": "sec-7",
+        "text": "Principal and Rates: The principal is your starting amount, and interest rates determine how fast your balance grows when converted to a decimal .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "The amount of money that is initially invested or borrowed is called the principal. The speed at which the interest grows is called the rate.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source defines principal and rate."
+      },
+      {
+        "id": "C53",
+        "location": "sec-7",
+        "text": "Simple Interest Mechanics: Simple interest is calculated strictly on the original principal amount using A = P(1 + rt), producing steady, linear growth over time , .",
+        "sids": [
+          "S4",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Simple interest is calculated only on the original principal, which leads to steady, predictable growth",
+        "quote_verified": true,
+        "explanation": "The source describes simple interest mechanics."
+      },
+      {
+        "id": "C54",
+        "location": "sec-7",
+        "text": "Compound Interest Mechanics: Compound interest is calculated on both the original principal and accumulated past interest using A = P(1 + r)^t , .",
+        "sids": [
+          "S4",
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest refers to a process where interest is calculated not only on the original principal but also on the accumulated interest from previous periods.",
+        "quote_verified": true,
+        "explanation": "The source describes compound interest mechanics."
+      },
+      {
+        "id": "C55",
+        "location": "sec-7",
+        "text": "The Power of Compounding: Compound interest generates exponential growth and higher returns over long periods due to earning \"interest on interest\" , .",
+        "sids": [
+          "S4",
+          "S8"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest drives wealth creation by reinvesting earnings, allowing investors to create exponential growth over the long run.",
+        "quote_verified": true,
+        "explanation": "The source describes the power of compounding."
+      },
+      {
+        "id": "C56",
+        "location": "quiz-Q1",
+        "text": "Answer to 'You invest 2,000 at an annual simple interest rate of 5% for 3 years. What is the total simple interest earned?': 300. Using the simple interest formula I = Prt, multiply 2,000 by 0.05 and 3 years, which equals 300 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "Using the simple interest formula I = Prt, multiply 2,000 by 0.05 and 3 years, which equals 300",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source confirms the calculation."
+      },
+      {
+        "id": "C57",
+        "location": "quiz-Q2",
+        "text": "Answer to 'If you borrow 5,000 at a simple interest rate of 4% per year for 6 months, how much interest do you pay?': 100. Time must be expressed in years, so 6 months is 0.5 years. Multiplying 5,000 \u00d7 0.04 \u00d7 0.5 gives 100 .",
+        "sids": [
+          "S3"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S3",
+        "evidence_quote": "Time must be expressed in years, so 6 months is 0.5 years. Multiplying 5,000 \u00d7 0.04 \u00d7 0.5 gives 100",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source confirms the calculation."
+      },
+      {
+        "id": "C58",
+        "location": "quiz-Q3",
+        "text": "Answer to 'You deposit 10,000 into an account earning 5 percent compound interest annually. What is the total accumulated amount after 3 years?': 11,576.25. Using the compound interest formula A = P(1 + r)^t, 10,000 \u00d7 (1.05)^3 results in 11,576.25 , .",
+        "sids": [
+          "S8",
+          "S15"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S8",
+        "evidence_quote": "Using the compound interest formula A = P(1 + r)^t, 10,000 \u00d7 (1.05)^3 results in 11,576.25",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source confirms the calculation."
+      },
+      {
+        "id": "C59",
+        "location": "quiz-Q4",
+        "text": "Answer to 'An investment of \u00a38,500 is placed into an account at 0.3% per year compound interest for 5 years. What is the final value?': \u00a38,628.79. Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately \u00a38,628.79 .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S5",
+        "evidence_quote": "Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately \u00a38,628.79",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. The source confirms the calculation."
+      },
+      {
+        "id": "C60",
+        "location": "quiz-Q5",
+        "text": "Answer to 'Why does compound interest grow faster than simple interest over extended time periods?': Compound interest earns interest on both the original principal and accumulated interest from prior periods.. Compound interest builds on both the principal and previously earned interest, creating a compounding 'interest on interest' effect that accelerates growth , .",
+        "sids": [
+          "S4",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Compound interest refers to a process where interest is calculated not only on the original principal but also on the accumulated interest from previous periods.",
+        "quote_verified": true,
+        "explanation": "The source explains why compound interest grows faster."
+      },
+      {
+        "id": "C61",
+        "location": "quiz-Q6",
+        "text": "Answer to 'What is the primary structural difference in the growth pattern between simple and compound interest over time?': Simple interest grows linearly with steady increases, while compound interest accelerates into exponential growth.. Simple interest grows linearly because earnings remain constant on the original principal, whereas compound interest accelerates over time as each period adds interest to the growing principal .",
+        "sids": [
+          "S4"
+        ],
+        "verdict": "supported",
+        "source_id": "S4",
+        "evidence_quote": "Simple interest grows linearly, while compound interest benefits from \u201cinterest on interest.\u201d",
+        "quote_verified": true,
+        "explanation": "The source explains the growth pattern difference."
+      },
+      {
+        "id": "U1",
+        "location": "sec-2",
+        "text": "Before calculating financial growth, we must define the core terms.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U2",
+        "location": "sec-2",
+        "text": "To understand why compound interest grows faster, consider the mechanics of accumulation.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U3",
+        "location": "sec-3",
+        "text": "Problem: \u00a31,500 is invested for 4 years at 5% per year simple interest.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U4",
+        "location": "sec-3",
+        "text": "Problem: 10,000 is invested in a simple interest account with a 2 percent annual rate for 1 year.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U5",
+        "location": "sec-3",
+        "text": "Problem: \u00a38,500 is invested for 5 years into a bank account at 0.3% per year compound interest.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U6",
+        "location": "sec-3",
+        "text": "Problem: 10,000 is deposited into an account earning 5 percent compound interest annually for 3 years.",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      },
+      {
+        "id": "U7",
+        "location": "sec-7",
+        "text": "Here are the key takeaways from this lesson:",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      }
+    ],
+    "numeric_checks": [
+      {
+        "location": "sec-3",
+        "expression": "(5/100) = 0.05",
+        "values": [
+          0.05,
+          0.05
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "0.05 * 4 = 0.20",
+        "values": [
+          0.2,
+          0.2
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "1 + 0.20 = 1.20",
+        "values": [
+          1.2,
+          1.2
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "1500 * 1.20 = 1800",
+        "values": [
+          1800.0,
+          1800.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "(2/100) = 0.02",
+        "values": [
+          0.02,
+          0.02
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "10000 * 0.02 * 1 = 200",
+        "values": [
+          200.0,
+          200.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "10000 + 200 = 10200",
+        "values": [
+          10200.0,
+          10200.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "(0.3/100) = 0.003",
+        "values": [
+          0.003,
+          0.003
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "1 + 0.003 = 1.003",
+        "values": [
+          1.003,
+          1.003
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "(1.003)**5 \u2248 1.50896",
+        "values": [
+          1.01509,
+          1.50896
+        ],
+        "ok": false,
+        "detail": "(1.003)**5 = 1.01509, but the text says 1.50896"
+      },
+      {
+        "location": "sec-3",
+        "expression": "8500 * 1.008985   = 8628.79",
+        "values": [
+          8576.3725,
+          8628.79
+        ],
+        "ok": false,
+        "detail": "8500 * 1.008985 = 8,576.37, but the text says 8628.79"
+      },
+      {
+        "location": "sec-3",
+        "expression": "(5/100) = 0.05",
+        "values": [
+          0.05,
+          0.05
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "(1.05)**3 = 1.157625",
+        "values": [
+          1.157625,
+          1.157625
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-3",
+        "expression": "10000 * 1.157625 = 11576.25",
+        "values": [
+          11576.25,
+          11576.25
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "(4/100) = 0.04",
+        "values": [
+          0.04,
+          0.04
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "4500 * 0.04 * 2 = 360",
+        "values": [
+          360.0,
+          360.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "4500 + 360 = 4860",
+        "values": [
+          4860.0,
+          4860.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "(6/100) = 0.06",
+        "values": [
+          0.06,
+          0.06
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "2000 * 0.06 * 0.5 = 60",
+        "values": [
+          60.0,
+          60.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "(1.04)**2 = 1.0816",
+        "values": [
+          1.0816,
+          1.0816
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "5000 * 1.0816 = 5408",
+        "values": [
+          5408.0,
+          5408.0
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "(1.05)**3 = 1.157625",
+        "values": [
+          1.157625,
+          1.157625
+        ],
+        "ok": true,
+        "detail": "matches"
+      },
+      {
+        "location": "sec-5",
+        "expression": "2000 * 1.157625 = 2315.25",
+        "values": [
+          2315.25,
+          2315.25
+        ],
+        "ok": true,
+        "detail": "matches"
+      }
+    ],
+    "source_audit": [
+      "Most-cited source S8 carries 19 of 61 cited claims (31%)."
+    ],
+    "outcome_gaps": [],
+    "contradictions": []
+  },
+  "issues": [
+    {
+      "category": "arithmetic_error",
+      "issue_id": "F-1",
+      "claim_or_text": "(1.003)**5 \u2248 1.50896",
+      "source_ids": [],
+      "status": "open",
+      "severity": "critical",
+      "id": 59,
+      "location": "sec-3",
+      "evidence": "(1.003)**5 = 1.01509, but the text says 1.50896",
+      "suggestion": "Recompute this step; the numbers in the text do not match."
+    },
+    {
+      "category": "arithmetic_error",
+      "issue_id": "F-2",
+      "claim_or_text": "8500 * 1.008985   = 8628.79",
+      "source_ids": [],
+      "status": "open",
+      "severity": "critical",
+      "id": 60,
+      "location": "sec-3",
+      "evidence": "8500 * 1.008985 = 8,576.37, but the text says 8628.79",
+      "suggestion": "Recompute this step; the numbers in the text do not match."
+    },
+    {
+      "category": "claim_unsupported",
+      "issue_id": "F-3",
+      "claim_or_text": "The formula for compound interest to find the final accumulated amount A is A = P(1 + r)^t, where P is the principal, r is the annual interest rate as a decimal, and t is the time in years .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "major",
+      "id": 61,
+      "location": "sec-2",
+      "evidence": "The provided source S8 does not explicitly state the formula A = P(1 + r)^t in the excerpt.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_unsupported",
+      "issue_id": "F-4",
+      "claim_or_text": "For example, if you deposit 10,000 at a 5 percent simple interest rate, your earnings are locked at 500 every single year .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "major",
+      "id": 62,
+      "location": "sec-2",
+      "evidence": "The source S8 mentions a 10,000 deposit at 5% for 3 years but does not explicitly state the earnings are locked at 500 every single year.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_unsupported",
+      "issue_id": "F-5",
+      "claim_or_text": "Step 1: Identify variables: P = 10000, r = 5% = 0.05, t = 3 .",
+      "source_ids": [
+        "S15"
+      ],
+      "status": "open",
+      "severity": "major",
+      "id": 63,
+      "location": "sec-3",
+      "evidence": "Source S15 does not contain the specific variable identification step for these values.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_unsupported",
+      "issue_id": "F-6",
+      "claim_or_text": "Identify variables: P = 5000, r = 0.04, t = 2 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "major",
+      "id": 64,
+      "location": "sec-5",
+      "evidence": "Source S8 does not contain this specific variable identification.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_unsupported",
+      "issue_id": "F-7",
+      "claim_or_text": "Identify variables: P = 2000, r = 0.05, t = 3 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "major",
+      "id": 65,
+      "location": "sec-5",
+      "evidence": "Source S8 does not contain this specific variable identification.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-8",
+      "claim_or_text": "Before calculating financial growth, we must define the core terms.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 66,
+      "location": "sec-2",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-9",
+      "claim_or_text": "To understand why compound interest grows faster, consider the mechanics of accumulation.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 67,
+      "location": "sec-2",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-10",
+      "claim_or_text": "Problem: \u00a31,500 is invested for 4 years at 5% per year simple interest.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 68,
+      "location": "sec-3",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-11",
+      "claim_or_text": "Problem: 10,000 is invested in a simple interest account with a 2 percent annual rate for 1 year.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 69,
+      "location": "sec-3",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-12",
+      "claim_or_text": "Problem: \u00a38,500 is invested for 5 years into a bank account at 0.3% per year compound interest.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 70,
+      "location": "sec-3",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-13",
+      "claim_or_text": "Problem: 10,000 is deposited into an account earning 5 percent compound interest annually for 3 years.",
+      "source_ids": [],
+      "status": "open",
+      "severity": "major",
+      "id": 71,
+      "location": "sec-3",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-14",
+      "claim_or_text": "Imagine you place 10,000 into a savings account earning a 5 percent annual return .",
+      "source_ids": [
+        "S7"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 72,
+      "location": "sec-1",
+      "evidence": "If a loan has an initial principal of $10,000 and an interest rate of 2 percent per year... Similarly, if an individual deposits $10,000 into a savings account with the same interest rate",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-15",
+      "claim_or_text": "Understanding this distinction is one of the most powerful tools in personal finance , helping you decide how to manage long-term savings and evaluate the true cost of borrowing money .",
+      "source_ids": [
+        "S7",
+        "S4"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 73,
+      "location": "sec-1",
+      "evidence": "Understanding this distinction is one of the most powerful tools in personal finance, helping you decide how to manage long-term savings and evaluate the true cost of borrowing money.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-16",
+      "claim_or_text": "The interest rate is the percentage used to determine how fast the balance grows over a set period, usually expressed annually and converted into a decimal form for calculations .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 74,
+      "location": "sec-2",
+      "evidence": "The speed at which the interest grows is called the rate. All rates are expressed as percentages.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-17",
+      "claim_or_text": "Time refers to the duration the money is invested or borrowed, typically expressed in years .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 75,
+      "location": "sec-2",
+      "evidence": "How long money is being invested or borrowed is called time. The amount of time is measured in one year",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-18",
+      "claim_or_text": "As a result, compound interest grows faster and produces exponential growth over time compared to the linear growth of simple interest .",
+      "source_ids": [
+        "S4"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 76,
+      "location": "sec-2",
+      "evidence": "Simple interest grows linearly, while compound interest benefits from \u201cinterest on interest.\u201d This makes compound interest more powerful for long-term investing",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-19",
+      "claim_or_text": "Failing to convert percentages to decimals: Always divide your percentage rate by 100 before plugging it into formulas (for example, 5% becomes 0.05) .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 77,
+      "location": "sec-2",
+      "evidence": "It's customary for financial institutions to quote a quantity called the interest rate as a percentage. ... r is the annual interest rate in decimal form",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-20",
+      "claim_or_text": "Here, P = 1500, r = 5% = 0.05, and t = 4 .",
+      "source_ids": [
+        "S5"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 78,
+      "location": "sec-3",
+      "evidence": "\u00a31500 is invested for 4 years at 5% per year simple interest.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-21",
+      "claim_or_text": "Step 2: Substitute the values into the formula: A = 1500 \u00d7 (1 + (0.05 \u00d7 4)) .",
+      "source_ids": [
+        "S5"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 79,
+      "location": "sec-3",
+      "evidence": "Substituting these values into the simple interest formula A = P (1 + rt), we get: A = 1500 \u00d7 (1 + (0.05 \u00d7 4))",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-22",
+      "claim_or_text": "Step 1: Identify variables: P = 10000, r = 2% = 0.02, t = 1 .",
+      "source_ids": [
+        "S7"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 80,
+      "location": "sec-3",
+      "evidence": "If a loan has an initial principal of $10,000 and an interest rate of 2 percent per year... by the end of the year he or she will owe $10,200",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-23",
+      "claim_or_text": "Here, P = 8500, r = 0.3% = 0.003, and t = 5 .",
+      "source_ids": [
+        "S5"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 81,
+      "location": "sec-3",
+      "evidence": "\u00a38500 is invested for 5 years into a bank account at 0.3% per year compound interest.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-24",
+      "claim_or_text": "Step 2: Substitute into the formula: A = 8500 \u00d7 (1 + 0.003)^5 .",
+      "source_ids": [
+        "S5"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 82,
+      "location": "sec-3",
+      "evidence": "A = 8500 \u00d7 (1 + 0.003)^5",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-25",
+      "claim_or_text": "Step 2: Substitute into the compound interest formula: A = 10000 \u00d7 (1 + 0.05)^3 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 83,
+      "location": "sec-3",
+      "evidence": "Let's use the same example: $10,000 invested at 5% for 3 years. But this time, the interest compounds annually: A = 10,000(1 + 0.05)^3",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-26",
+      "claim_or_text": "Step 3: Evaluate the expression: (1.05)^3 = 1.157625 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 84,
+      "location": "sec-3",
+      "evidence": "(1.05)^3 = 1.157625",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-27",
+      "claim_or_text": "Step 4: Multiply by principal: A = 10000 \u00d7 1.157625 = 11,576.25 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 85,
+      "location": "sec-3",
+      "evidence": "A = 10,000 \u00d7 1.157625 = 11,576.25",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-28",
+      "claim_or_text": "Final Answer: 11,576.25 (yielding 1,576.25 in total interest compared to 1,500 under simple interest) , .",
+      "source_ids": [
+        "S8",
+        "S15"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 86,
+      "location": "sec-3",
+      "evidence": "A $10,000 deposit at 5 percent simple interest over three years yields $1,500 in total interest. The same deposit at 5 percent compound interest annually yields $1,576.25 over three years.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-29",
+      "claim_or_text": "(Investopedia): Watch how a 10,000 deposit compares across simple and compound structures over a 3-year period .",
+      "source_ids": [
+        "S15"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 87,
+      "location": "sec-4",
+      "evidence": "A $10,000 deposit at 5 percent simple interest over three years yields $1,500 in total interest. The same deposit at 5 percent compound interest annually yields $1,576.25 over three years.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-30",
+      "claim_or_text": "Use simple interest formula I = Prt: I = 4500 \u00d7 0.04 \u00d7 2 = 360 .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 88,
+      "location": "sec-5",
+      "evidence": "I = Prt",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-31",
+      "claim_or_text": "Calculate interest: I = 2000 \u00d7 0.06 \u00d7 0.5 = 60 .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 89,
+      "location": "sec-5",
+      "evidence": "I = Prt",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-32",
+      "claim_or_text": "Use formula A = P(1 + r)^t: A = 5000 \u00d7 (1 + 0.04)^2 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 90,
+      "location": "sec-5",
+      "evidence": "A = P(1 + r)^t",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-33",
+      "claim_or_text": "Calculate: (1.04)^2 = 1.0816 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 91,
+      "location": "sec-5",
+      "evidence": "(1.04)^2 = 1.0816",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-34",
+      "claim_or_text": "Formula: A = 2000 \u00d7 (1 + 0.05)^3 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 92,
+      "location": "sec-5",
+      "evidence": "A = P(1 + r)^t",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-35",
+      "claim_or_text": "Calculate: (1.05)^3 = 1.157625 .",
+      "source_ids": [
+        "S8"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 93,
+      "location": "sec-5",
+      "evidence": "(1.05)^3 = 1.157625",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-36",
+      "claim_or_text": "Principal and Rates: The principal is your starting amount, and interest rates determine how fast your balance grows when converted to a decimal .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 94,
+      "location": "sec-7",
+      "evidence": "The amount of money that is initially invested or borrowed is called the principal. The speed at which the interest grows is called the rate.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-37",
+      "claim_or_text": "Answer to 'You invest 2,000 at an annual simple interest rate of 5% for 3 years. What is the total simple interest earned?': 300. Using the simple interest formula I = Prt, multiply 2,000 by 0.05 and 3 years, which equals 300 .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 95,
+      "location": "quiz-Q1",
+      "evidence": "Using the simple interest formula I = Prt, multiply 2,000 by 0.05 and 3 years, which equals 300",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-38",
+      "claim_or_text": "Answer to 'If you borrow 5,000 at a simple interest rate of 4% per year for 6 months, how much interest do you pay?': 100. Time must be expressed in years, so 6 months is 0.5 years. Multiplying 5,000 \u00d7 0.04 \u00d7 0.5 gives 100 .",
+      "source_ids": [
+        "S3"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 96,
+      "location": "quiz-Q2",
+      "evidence": "Time must be expressed in years, so 6 months is 0.5 years. Multiplying 5,000 \u00d7 0.04 \u00d7 0.5 gives 100",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-39",
+      "claim_or_text": "Answer to 'You deposit 10,000 into an account earning 5 percent compound interest annually. What is the total accumulated amount after 3 years?': 11,576.25. Using the compound interest formula A = P(1 + r)^t, 10,000 \u00d7 (1.05)^3 results in 11,576.25 , .",
+      "source_ids": [
+        "S8",
+        "S15"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 97,
+      "location": "quiz-Q3",
+      "evidence": "Using the compound interest formula A = P(1 + r)^t, 10,000 \u00d7 (1.05)^3 results in 11,576.25",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-40",
+      "claim_or_text": "Answer to 'An investment of \u00a38,500 is placed into an account at 0.3% per year compound interest for 5 years. What is the final value?': \u00a38,628.79. Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately \u00a38,628.79 .",
+      "source_ids": [
+        "S5"
+      ],
+      "status": "open",
+      "severity": "minor",
+      "id": 98,
+      "location": "quiz-Q4",
+      "evidence": "Using A = P(1 + r)^t with P = 8500, r = 0.003, and t = 5 yields approximately \u00a38,628.79",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-41",
+      "claim_or_text": "Here are the key takeaways from this lesson:",
+      "source_ids": [],
+      "status": "open",
+      "severity": "minor",
+      "id": 99,
+      "location": "sec-7",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    }
+  ]
+}

@@ -1,0 +1,1946 @@
+{
+  "report_id": 1,
+  "layer": "factual",
+  "lesson_id": 1,
+  "lesson_version_no": 1,
+  "score": 79.1,
+  "summary": "72 of 91 claims supported (79%); 18 partial, 0 unsupported, 0 contradicted, 1 uncited. 0/0 calculations recomputed correctly. 0 contradiction(s), 0 outcome gap(s). Judge: gemini-3.5-flash-lite.",
+  "created_at": "2026-11-07T15:15:12.380441+00:00",
+  "details": {
+    "method": "claims extracted in code; one batched LLM verdict call; quotes verified in code",
+    "model": "gemini-3.5-flash-lite",
+    "counts": {
+      "supported": 72,
+      "partially_supported": 18,
+      "not_checked": 18,
+      "uncited": 1
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "location": "sec-1",
+        "text": "Every time you open a web browser, view a page, or fill out an online form, your device communicates across the internet using a structured protocol , .",
+        "sids": [
+          "S6",
+          "S15"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "Whenever you access a site and load and interact with its content, you\u2019re using HTTP.",
+        "quote_verified": true,
+        "explanation": "S15 states that whenever you access a site and load and interact with its content, you are using HTTP structured requests and responses over the internet."
+      },
+      {
+        "id": "C2",
+        "location": "sec-1",
+        "text": "The web relies on a communication model where a client (like your web browser) sends a request to a remote server, and the server sends back a response , , .",
+        "sids": [
+          "S5",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "These communications are almost always initiated by clients in the form of requests. These requests are fulfilled by the server application which sends back a response",
+        "quote_verified": true,
+        "explanation": "S5 describes client-server communication using requests and server responses."
+      },
+      {
+        "id": "C3",
+        "location": "sec-1",
+        "text": "The standard protocol governing these exchanges is called the Hypertext Transfer Protocol, or HTTP , .",
+        "sids": [
+          "S6",
+          "S15"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "HTTP stands for HyperText Transfer Protocol \u2014 and it's used to structure requests and responses over the internet.",
+        "quote_verified": true,
+        "explanation": "S15 identifies Hypertext Transfer Protocol (HTTP) as the protocol used for these exchanges."
+      },
+      {
+        "id": "C4",
+        "location": "sec-1",
+        "text": "In this lesson, you will learn how HTTP methods specify your intent and how server response status codes report the outcome of your requests , , .",
+        "sids": [
+          "S2",
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "HTTP defines a set of request methods to indicate the purpose of the request and what is expected if the request is successful.",
+        "quote_verified": true,
+        "explanation": "S2 supports how HTTP methods specify the intent/purpose of a request."
+      },
+      {
+        "id": "C5",
+        "location": "sec-2",
+        "text": "Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol designed for distributed, collaborative, hypertext information systems .",
+        "sids": [
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "The Hypertext Transfer Protocol (HTTP) is a stateless application- level protocol for distributed, collaborative, hypertext information systems.",
+        "quote_verified": true,
+        "explanation": "S6 explicitly defines HTTP with this exact wording."
+      },
+      {
+        "id": "C6",
+        "location": "sec-2",
+        "text": "It structures how requests and responses are formatted and transferred between clients and servers across the internet , .",
+        "sids": [
+          "S6",
+          "S15"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "HTTP stands for HyperText Transfer Protocol \u2014 and it's used to structure requests and responses over the internet.",
+        "quote_verified": true,
+        "explanation": "S15 supports that HTTP is used to structure requests and responses over the internet."
+      },
+      {
+        "id": "C7",
+        "location": "sec-2",
+        "text": "An HTTP request message consists of a request line (containing the method and path), request headers, and an optional body , , .",
+        "sids": [
+          "S5",
+          "S14",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S16",
+        "evidence_quote": "Anatomy of an HTTP Request: Request line, headers, blank line, and body",
+        "quote_verified": true,
+        "explanation": "S16 breaks down the request components including request line, headers, and body."
+      },
+      {
+        "id": "C8",
+        "location": "sec-2",
+        "text": "The GET method is the primary mechanism of information retrieval on the web .",
+        "sids": [
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S6",
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6 specification covers GET as a retrieval method (S2 also defines GET as requesting a representation of a resource)."
+      },
+      {
+        "id": "C9",
+        "location": "sec-2",
+        "text": "When a client issues a GET request, it asks the server to transfer a representation of the specified resource , .",
+        "sids": [
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The GET method requests a representation of the specified resource.",
+        "quote_verified": true,
+        "explanation": "S2 states that GET requests a representation of the specified resource."
+      },
+      {
+        "id": "C10",
+        "location": "sec-2",
+        "text": "For example, when you navigate to a website or request the current weather for a specific city, your browser sends a GET request to retrieve that data , , .",
+        "sids": [
+          "S5",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "In our weather app, we could use a GET to retrieve the current weather for a specific city.",
+        "quote_verified": true,
+        "explanation": "S5 uses the example of retrieving the current weather for a specific city."
+      },
+      {
+        "id": "C11",
+        "location": "sec-2",
+        "text": "HTTP defines several formal characteristics for request methods :",
+        "sids": [
+          "S2"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "Each request method has its own semantics, but some characteristics are shared across multiple methods, specifically request methods can be safe, idempotent, or cacheable.",
+        "quote_verified": true,
+        "explanation": "S2 details characteristics for request methods like safety, idempotency, and cacheability."
+      },
+      {
+        "id": "C12",
+        "location": "sec-2",
+        "text": "No Request Body: Requests using GET should only retrieve data and should not contain request content or a body payload , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "Requests using GET should only retrieve data and should not contain a request content.",
+        "quote_verified": true,
+        "explanation": "S2 states that GET requests should not contain request content/body."
+      },
+      {
+        "id": "C13",
+        "location": "sec-2",
+        "text": "You are requesting data from the specified endpoint without attaching payload content .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "You are requesting all data from the specified endpoint.",
+        "quote_verified": true,
+        "explanation": "S5 explains that you are requesting data from the endpoint without specifying anything in the request body."
+      },
+      {
+        "id": "C14",
+        "location": "sec-2",
+        "text": "Safe: GET is classified as a safe method , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| GET | Yes | Yes | Yes |",
+        "quote_verified": true,
+        "explanation": "S2 table marks GET as Yes for Safe."
+      },
+      {
+        "id": "C15",
+        "location": "sec-2",
+        "text": "Safe methods are read-only operations that do not alter resources or cause side effects on the server , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S2",
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S2 and general HTTP semantics define safe methods as read-only operations without side effects."
+      },
+      {
+        "id": "C16",
+        "location": "sec-2",
+        "text": "Idempotent: GET is idempotent , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| GET | Yes | Yes | Yes |",
+        "quote_verified": true,
+        "explanation": "S2 table classifies GET as idempotent (Yes)."
+      },
+      {
+        "id": "C17",
+        "location": "sec-2",
+        "text": "An idempotent method produces the same intended effect on the server whether it is executed once or multiple times consecutively , .",
+        "sids": [
+          "S1",
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S6",
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6/S2 definitions of idempotence mean multiple identical calls have the same effect as a single call."
+      },
+      {
+        "id": "C18",
+        "location": "sec-2",
+        "text": "Calling a GET request repeatedly simply retrieves the current resource representation without altering server state , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The GET method requests a representation of the specified resource. Requests using GET should only retrieve data",
+        "quote_verified": true,
+        "explanation": "S2 supports that GET retrieves resource representations without changing server state."
+      },
+      {
+        "id": "C19",
+        "location": "sec-2",
+        "text": "Cacheable: GET responses are defined as cacheable , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| GET | Yes | Yes | Yes |",
+        "quote_verified": true,
+        "explanation": "S2 table classifies GET responses as cacheable (Yes)."
+      },
+      {
+        "id": "C20",
+        "location": "sec-2",
+        "text": "Caching allows responses to be stored for future reuse to optimize performance .",
+        "sids": [
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S6",
+        "evidence_quote": "Responses with status codes that are defined as cacheable by default ... can be reused by a cache",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6 explains that cacheable responses can be stored/reused to optimize performance."
+      },
+      {
+        "id": "C21",
+        "location": "sec-3",
+        "text": "While GET retrieves data, the POST method submits an entity to the specified resource on the server , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.",
+        "quote_verified": true,
+        "explanation": "S2 details that POST submits an entity to a resource."
+      },
+      {
+        "id": "C22",
+        "location": "sec-3",
+        "text": "Sending a POST request often causes a change in state or side effects on the server , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.",
+        "quote_verified": true,
+        "explanation": "S2 explicitly states POST often causes a change in state or side effects."
+      },
+      {
+        "id": "C23",
+        "location": "sec-3",
+        "text": "Common real-world uses of POST include adding a new user through a sign-up form, posting a message to a group or bulletin board, providing data from a form submission, or appending new data to a database , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "HTML forms typically send data using `POST` and this usually results in a change on the server.",
+        "quote_verified": true,
+        "explanation": "S1 describes how HTML forms submit data using POST."
+      },
+      {
+        "id": "C24",
+        "location": "sec-3",
+        "text": "Requires / Contains a Body: Unlike GET, a POST request carries data inside a request body , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "A `POST` request requires a body in which you define the data of the entity to be created.",
+        "quote_verified": true,
+        "explanation": "S5 states that POST requires a body."
+      },
+      {
+        "id": "C25",
+        "location": "sec-3",
+        "text": "The type of data in the body is declared using the Content-Type request header .",
+        "sids": [
+          "S1"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "The type of the body of the request is indicated by the `Content-Type` header.",
+        "quote_verified": true,
+        "explanation": "S1 confirms the body type is indicated by the Content-Type header."
+      },
+      {
+        "id": "C26",
+        "location": "sec-3",
+        "text": "Form Encodings: HTML forms typically submit data using POST .",
+        "sids": [
+          "S1"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "HTML forms typically send data using `POST`",
+        "quote_verified": true,
+        "explanation": "S1 states that HTML forms typically send data using POST."
+      },
+      {
+        "id": "C27",
+        "location": "sec-3",
+        "text": "Common form encodings include application/x-www-form-urlencoded (where data is formatted as key=value pairs separated by &) and multipart/form-data (used for uploading files or submitting large blocks of data delineated by boundary strings) .",
+        "sids": [
+          "S1"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S1",
+        "evidence_quote": "application/x-www-form-urlencoded: the keys and values are encoded in key-value tuples separated by an ampersand (&), with an equals symbol (=) between the key and the value ... multipart/form-data: each value is sent as a block of data (\"body part\"), with a user agent-defined delimiter",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S1 provides the detailed explanations and encodings for form data."
+      },
+      {
+        "id": "C28",
+        "location": "sec-3",
+        "text": "Non-form calls (such as API fetch requests) can send JSON or other body formats , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S1",
+        "evidence_quote": "When the `POST` request is sent following a `fetch()` call, or for any other reason than an HTML form, the body can be any type.",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S1 notes that non-form calls can use bodies of other types like JSON."
+      },
+      {
+        "id": "C29",
+        "location": "sec-3",
+        "text": "Not Safe: POST is not safe , .",
+        "sids": [
+          "S1",
+          "S2"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| `POST` | No | No | Conditional\\* |",
+        "quote_verified": true,
+        "explanation": "S2 table marks POST Safe as No."
+      },
+      {
+        "id": "C30",
+        "location": "sec-3",
+        "text": "Executing a POST request actively submits data to a server process, creating resources or modifying server state , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "The **`POST`** HTTP method sends data to the server.",
+        "quote_verified": true,
+        "explanation": "S1 and S2 support that POST submits data to server processes/resources."
+      },
+      {
+        "id": "C31",
+        "location": "sec-3",
+        "text": "Not Idempotent: POST is not idempotent , .",
+        "sids": [
+          "S1",
+          "S2"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| `POST` | No | No | Conditional\\* |",
+        "quote_verified": true,
+        "explanation": "S2 table marks POST Idempotent as No."
+      },
+      {
+        "id": "C32",
+        "location": "sec-3",
+        "text": "Calling identical POST requests multiple times may produce additional side effects , .",
+        "sids": [
+          "S1",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "Successive identical `POST` requests may have additional effects, such as creating the same order several times.",
+        "quote_verified": true,
+        "explanation": "S1 states that identical POST requests may have additional effects when called multiple times."
+      },
+      {
+        "id": "C33",
+        "location": "sec-3",
+        "text": "For example, submitting a POST order request twice could create two separate orders in the system , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "Successive identical `POST` requests may have additional effects, such as creating the same order several times.",
+        "quote_verified": true,
+        "explanation": "S1 specifically uses the example of creating the same order several times."
+      },
+      {
+        "id": "C34",
+        "location": "sec-3",
+        "text": "Cacheability: POST is generally not cacheable by default, unless the response explicitly includes freshness information and matching location headers , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "\\* `POST` and `PATCH` are cacheable when responses explicitly include freshness information and a matching `Content-Location` header.",
+        "quote_verified": true,
+        "explanation": "S2 footnote indicates POST cacheability conditions."
+      },
+      {
+        "id": "C35",
+        "location": "sec-3",
+        "text": "Primary Purpose | Read / retrieve data , , | Submit data / create resource , , ,",
+        "sids": [
+          "S2",
+          "S5",
+          "S6",
+          "S1"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The `POST` method submits an entity to the specified resource",
+        "quote_verified": true,
+        "explanation": "S2 and S5 support the primary purpose contrast between GET and POST."
+      },
+      {
+        "id": "C36",
+        "location": "sec-3",
+        "text": "Has Request Body? | No , , | Yes ,",
+        "sids": [
+          "S2",
+          "S5",
+          "S6",
+          "S1"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "Requests using `GET` should only retrieve data and should not contain a request content.",
+        "quote_verified": true,
+        "explanation": "S2 and S5 confirm GET lacks a request body while POST requires one."
+      },
+      {
+        "id": "C37",
+        "location": "sec-3",
+        "text": "Safe? | Yes (Read-only) , , | No (Causes side effects / state change) , ,",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S2",
+        "evidence_quote": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S2 table confirms GET is safe (Yes) and POST is not safe (No)."
+      },
+      {
+        "id": "C38",
+        "location": "sec-3",
+        "text": "Idempotent? | Yes (Repeated calls yield same state) , , | No (Repeated calls cause multiple effects) , ,",
+        "sids": [
+          "S1",
+          "S2",
+          "S6",
+          "S5"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S2",
+        "evidence_quote": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S2 table confirms GET is idempotent (Yes) and POST is not (No)."
+      },
+      {
+        "id": "C39",
+        "location": "sec-3",
+        "text": "Cacheable? | Yes , , | Only with explicit freshness info , ,",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S2",
+        "evidence_quote": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S2 table confirms GET cacheability is Yes and POST cacheability is conditional."
+      },
+      {
+        "id": "C40",
+        "location": "sec-4",
+        "text": "When a server processes an HTTP request, it returns an HTTP response message , , .",
+        "sids": [
+          "S5",
+          "S14",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "These requests are fulfilled by the server application which sends back a response containing the resource you requested",
+        "quote_verified": true,
+        "explanation": "S5 notes that servers return a response message when processing requests."
+      },
+      {
+        "id": "C41",
+        "location": "sec-4",
+        "text": "An HTTP response includes a protocol version, a status code, status text, response headers, and an optional response body , , .",
+        "sids": [
+          "S5",
+          "S14",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "A response must have the following:\n* Protocol version (like `HTTP/1.1`)\n* Status code (like `200`)\n* Status text (`OK`)\n* Headers",
+        "quote_verified": true,
+        "explanation": "S5 lists response components including protocol version, status code, status text, and headers."
+      },
+      {
+        "id": "C42",
+        "location": "sec-4",
+        "text": "The status code is a 3-digit integer that signals the outcome of the request , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "HTTP status codes describe the result of a request",
+        "quote_verified": true,
+        "explanation": "S7 and S6 describe status codes as 3-digit integers signaling request outcomes."
+      },
+      {
+        "id": "C43",
+        "location": "sec-4",
+        "text": "The first digit of the status code defines the overall class or category of the response , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "The first digit of the status code defines the general category of the response.",
+        "quote_verified": true,
+        "explanation": "S7 states that the first digit defines the overall class or category."
+      },
+      {
+        "id": "C44",
+        "location": "sec-4",
+        "text": "Status codes starting with 2 (2xx) indicate that the request was successfully received, understood, and accepted by the server , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 2xx (Successful): The request was successfully received, understood, and accepted",
+        "quote_verified": true,
+        "explanation": "S6 defines 2xx status codes with this exact phrasing."
+      },
+      {
+        "id": "C45",
+        "location": "sec-4",
+        "text": "200 OK: Standard successful response indicating the request succeeded with no issues , , .",
+        "sids": [
+          "S6",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "A 200 OK status code means there are no issues with the request.",
+        "quote_verified": true,
+        "explanation": "S15 states that 200 OK indicates no issues with the request."
+      },
+      {
+        "id": "C46",
+        "location": "sec-4",
+        "text": "201 Created: Indicates that the request was fulfilled and resulted in one or more new resources being created on the server , .",
+        "sids": [
+          "S6",
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "201 ... Created",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 and S6 list 201 Created as indicating the request was fulfilled and resulted in resource creation."
+      },
+      {
+        "id": "C47",
+        "location": "sec-4",
+        "text": "204 No Content: Indicates that the server successfully fulfilled the request, but there is no payload body to send in the response , .",
+        "sids": [
+          "S6",
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "204 ... No Content",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 and S6 detail 204 No Content successfully fulfilling the request with no body to send."
+      },
+      {
+        "id": "C48",
+        "location": "sec-4",
+        "text": "Status codes starting with 4 (4xx) indicate a Client Error , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 4xx (Client Error): The request contains bad syntax or cannot be fulfilled",
+        "quote_verified": true,
+        "explanation": "S6 defines 4xx as Client Error."
+      },
+      {
+        "id": "C49",
+        "location": "sec-4",
+        "text": "This means the request contains bad syntax or cannot be fulfilled due to an issue on the client's side , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "The request contains bad syntax or cannot be fulfilled",
+        "quote_verified": true,
+        "explanation": "S6 notes that 4xx means the request contains bad syntax or cannot be fulfilled."
+      },
+      {
+        "id": "C50",
+        "location": "sec-4",
+        "text": "400 Bad Request: Generic client error indicating the request is malformed or invalid , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S7",
+        "evidence_quote": "400 Bad Request should usually be used when the request itself is technically invalid.",
+        "quote_verified": true,
+        "explanation": "S7 and S6 describe 400 Bad Request as a client error indicating malformed/invalid requests."
+      },
+      {
+        "id": "C51",
+        "location": "sec-4",
+        "text": "401 Unauthorized: The request lacks valid authentication credentials .",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "401 ... Unauthorized",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 lists 401 Unauthorized as lacking valid authentication credentials."
+      },
+      {
+        "id": "C52",
+        "location": "sec-4",
+        "text": "403 Forbidden: The server understands the request but refuses to authorize it .",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "403 ... Forbidden",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 lists 403 Forbidden as the server understanding the request but refusing to authorize it."
+      },
+      {
+        "id": "C53",
+        "location": "sec-4",
+        "text": "404 Not Found: The requested resource or piece of content could not be found on the server , , .",
+        "sids": [
+          "S6",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "A 404 Not Found status code indicates that the requested piece of content was not found.",
+        "quote_verified": true,
+        "explanation": "S15 and S16 state 404 means the requested resource could not be found."
+      },
+      {
+        "id": "C54",
+        "location": "sec-4",
+        "text": "Status codes starting with 5 (5xx) indicate a Server Error , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 defines 5xx as Server Error."
+      },
+      {
+        "id": "C55",
+        "location": "sec-4",
+        "text": "This means the client sent an apparently valid request, but the server failed to fulfill it due to an internal server issue , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 explains that 5xx indicates the server failed to fulfill a valid request."
+      },
+      {
+        "id": "C56",
+        "location": "sec-4",
+        "text": "500 Internal Server Error: A generic error message indicating the server encountered an unexpected condition , .",
+        "sids": [
+          "S6",
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "500 ... Internal Server Error",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 and S6 list 500 Internal Server Error as an unexpected server condition."
+      },
+      {
+        "id": "C57",
+        "location": "sec-4",
+        "text": "503 Service Unavailable: The server is currently unable to handle the request, often due to maintenance or overload .",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "503 ... Service Unavailable",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 lists 503 Service Unavailable when the server is unable to handle the request due to maintenance or overload."
+      },
+      {
+        "id": "C58",
+        "location": "sec-4",
+        "text": "1xx: Informational (request received, continuing process) , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 1xx (Informational): The request was received, continuing process",
+        "quote_verified": true,
+        "explanation": "S6 outlines 1xx informational responses."
+      },
+      {
+        "id": "C59",
+        "location": "sec-4",
+        "text": "2xx: Successful (request accepted and completed) , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 2xx (Successful): The request was successfully received, understood, and accepted",
+        "quote_verified": true,
+        "explanation": "S6 outlines 2xx successful responses."
+      },
+      {
+        "id": "C60",
+        "location": "sec-4",
+        "text": "3xx: Redirection (further action needed to complete request) , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 3xx (Redirection): Further action needs to be taken in order to complete the request",
+        "quote_verified": true,
+        "explanation": "S6 outlines 3xx redirection responses."
+      },
+      {
+        "id": "C61",
+        "location": "sec-4",
+        "text": "4xx: Client Error (request problem / bad syntax / resource missing) , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 4xx (Client Error): The request contains bad syntax or cannot be fulfilled",
+        "quote_verified": true,
+        "explanation": "S6 outlines 4xx client errors."
+      },
+      {
+        "id": "C62",
+        "location": "sec-4",
+        "text": "5xx: Server Error (server failed to fulfill valid request) , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 outlines 5xx server errors."
+      },
+      {
+        "id": "C63",
+        "location": "sec-5",
+        "text": "Scenario: A client app requests the current weather report for a city .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "In our weather app, we could use a GET to retrieve the current weather for a specific city.",
+        "quote_verified": true,
+        "explanation": "S5 provides the scenario of requesting a weather report for a city."
+      },
+      {
+        "id": "C64",
+        "location": "sec-5",
+        "text": "Method Used: GET .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "In our weather app, we could use a GET to retrieve the current weather for a specific city.",
+        "quote_verified": true,
+        "explanation": "S5 specifies using GET for the weather app scenario."
+      },
+      {
+        "id": "C65",
+        "location": "sec-5",
+        "text": "Request Characteristics: The client sends an HTTP GET request targeting /v1/weather?city=Seattle .",
+        "sids": [
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "An HTTP request must have the following:\n* An HTTP method (like `GET`)\n* A host URL (like `https://api.spotify.com/`)\n* An endpoint path(like `v1/artists/{id}/related-artists`)",
+        "quote_verified": true,
+        "explanation": "S5 covers request structure matching endpoint and path usage."
+      },
+      {
+        "id": "C66",
+        "location": "sec-5",
+        "text": "It contains headers but no request body payload , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "Requests using `GET` should only retrieve data and should not contain a request content.",
+        "quote_verified": true,
+        "explanation": "S2 confirms GET requests contain no request content/body."
+      },
+      {
+        "id": "C67",
+        "location": "sec-5",
+        "text": "Server Response: The server processes the request, locates the weather resource, and responds with a status code of 200 OK and a JSON body containing the temperature data , , , .",
+        "sids": [
+          "S5",
+          "S6",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S5",
+        "evidence_quote": "The server sends back a response containing the weather information",
+        "quote_verified": true,
+        "explanation": "S5 supports that the weather app server responds with temperature data and a successful status."
+      },
+      {
+        "id": "C68",
+        "location": "sec-5",
+        "text": "Analysis: This is a safe, read-only operation categorized under the 2xx (Successful) response class , , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "| `GET` | Yes | Yes | Yes |",
+        "quote_verified": true,
+        "explanation": "S2 classifies GET as safe and 2xx as successful."
+      },
+      {
+        "id": "C69",
+        "location": "sec-5",
+        "text": "Scenario: A user fills out a registration form on a website and clicks \"Submit\" , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "HTML forms typically send data using `POST`",
+        "quote_verified": true,
+        "explanation": "S1 supports users submitting forms using POST."
+      },
+      {
+        "id": "C70",
+        "location": "sec-5",
+        "text": "Method Used: POST , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "HTML forms typically send data using `POST`",
+        "quote_verified": true,
+        "explanation": "S1 supports POST as the method used."
+      },
+      {
+        "id": "C71",
+        "location": "sec-5",
+        "text": "Request Characteristics: The browser packages the user's input (such as username and email) into the request body formatted as application/x-www-form-urlencoded .",
+        "sids": [
+          "S1"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "A form using `application/x-www-form-urlencoded` content encoding (the default) sends a request where the body contains the form data in `key=value` pairs",
+        "quote_verified": true,
+        "explanation": "S1 details the application/x-www-form-urlencoded format for forms."
+      },
+      {
+        "id": "C72",
+        "location": "sec-5",
+        "text": "Server Response: The server processes the data, adds the new user to its database, and responds with 201 Created , , .",
+        "sids": [
+          "S1",
+          "S6",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "Successive identical `POST` requests may have additional effects, such as creating the same order several times.",
+        "quote_verified": true,
+        "explanation": "S1 supports POST creating resources on the server."
+      },
+      {
+        "id": "C73",
+        "location": "sec-5",
+        "text": "Analysis: Because a new user resource was created on the server, the operation is non-idempotent and returns a 2xx success code specifically denoting resource creation , , .",
+        "sids": [
+          "S1",
+          "S6",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "Successive identical `POST` requests may have additional effects",
+        "quote_verified": true,
+        "explanation": "S1 and S2 support that POST is non-idempotent and creates resources."
+      },
+      {
+        "id": "C74",
+        "location": "sec-5",
+        "text": "Response Code: 404 Not Found , , .",
+        "sids": [
+          "S6",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "A 404 Not Found status code indicates that the requested piece of content was not found.",
+        "quote_verified": true,
+        "explanation": "S15 lists 404 Not Found."
+      },
+      {
+        "id": "C75",
+        "location": "sec-5",
+        "text": "Category: 4xx Client Error , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 4xx (Client Error): The request contains bad syntax or cannot be fulfilled",
+        "quote_verified": true,
+        "explanation": "S6 defines 4xx client errors."
+      },
+      {
+        "id": "C76",
+        "location": "sec-5",
+        "text": "The request could not be fulfilled because the requested resource does not exist , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S15"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "A 404 Not Found status code indicates that the requested piece of content was not found.",
+        "quote_verified": true,
+        "explanation": "S15 confirms the requested content does not exist."
+      },
+      {
+        "id": "C77",
+        "location": "sec-5",
+        "text": "Response Code: 500 Internal Server Error .",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "500 ... Internal Server Error",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 lists 500 Internal Server Error."
+      },
+      {
+        "id": "C78",
+        "location": "sec-5",
+        "text": "Category: 5xx Server Error , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 defines 5xx server errors."
+      },
+      {
+        "id": "C79",
+        "location": "sec-5",
+        "text": "The request was valid, but the server failed internally to process it , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 states the server failed to fulfill an apparently valid request."
+      },
+      {
+        "id": "C80",
+        "location": "sec-5",
+        "text": "Do not attach a body to a GET request: GET is designed to retrieve data without carrying request body payloads , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "Requests using `GET` should only retrieve data and should not contain a request content.",
+        "quote_verified": true,
+        "explanation": "S2 specifies GET should not carry request content/body payloads."
+      },
+      {
+        "id": "C81",
+        "location": "sec-5",
+        "text": "Do not assume POST is safe or idempotent: Calling a POST request repeatedly can create duplicate database records or orders , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "Successive identical `POST` requests may have additional effects, such as creating the same order several times.",
+        "quote_verified": true,
+        "explanation": "S1 notes POST can create duplicate records/orders when called repeatedly."
+      },
+      {
+        "id": "C82",
+        "location": "sec-5",
+        "text": "Do not confuse 4xx and 5xx errors: 4xx errors mean the client sent a bad request or asked for a non-existent resource; 5xx errors mean the client request was valid, but the server encountered a failure , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S6",
+        "evidence_quote": "o 4xx (Client Error): The request contains bad syntax or cannot be fulfilled ... o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6 contrasts 4xx client errors and 5xx server errors."
+      },
+      {
+        "id": "C83",
+        "location": "sec-6",
+        "text": "Explanation: GET is used because the client is retrieving existing product data without submitting a body or changing server state , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The `GET` method requests a representation of the specified resource. Requests using `GET` should only retrieve data",
+        "quote_verified": true,
+        "explanation": "S2 and S5 explain that GET retrieves existing data without changing state."
+      },
+      {
+        "id": "C84",
+        "location": "sec-6",
+        "text": "A successful retrieval returns a 2xx status code , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 2xx (Successful): The request was successfully received, understood, and accepted",
+        "quote_verified": true,
+        "explanation": "S6 specifies 2xx for successful responses."
+      },
+      {
+        "id": "C85",
+        "location": "sec-6",
+        "text": "Explanation: POST is used to send user data inside the request body to create a new user entity on the server , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "supported",
+        "source_id": "S1",
+        "evidence_quote": "The **`POST`** HTTP method sends data to the server.",
+        "quote_verified": true,
+        "explanation": "S1 and S5 support POST sending data inside the body to create new entities."
+      },
+      {
+        "id": "C86",
+        "location": "sec-6",
+        "text": "Upon successful creation, the server responds with a 2xx status code (such as 201 Created) , .",
+        "sids": [
+          "S6",
+          "S16"
+        ],
+        "verdict": "partially_supported",
+        "source_id": "S16",
+        "evidence_quote": "201 ... Created",
+        "quote_verified": false,
+        "explanation": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S16 lists 201 Created as a 2xx success code."
+      },
+      {
+        "id": "C87",
+        "location": "sec-6",
+        "text": "Explanation: The client attempts to retrieve a document via GET , .",
+        "sids": [
+          "S2",
+          "S6"
+        ],
+        "verdict": "supported",
+        "source_id": "S2",
+        "evidence_quote": "The `GET` method requests a representation of the specified resource.",
+        "quote_verified": true,
+        "explanation": "S2 supports using GET to retrieve a document."
+      },
+      {
+        "id": "C88",
+        "location": "sec-6",
+        "text": "Because the requested resource no longer exists, the server returns a 4xx client error code (404 Not Found) , , .",
+        "sids": [
+          "S6",
+          "S15",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S15",
+        "evidence_quote": "A 404 Not Found status code indicates that the requested piece of content was not found.",
+        "quote_verified": true,
+        "explanation": "S15 and S16 link missing resources to 404 client error codes."
+      },
+      {
+        "id": "C89",
+        "location": "sec-6",
+        "text": "Explanation: Although the request sent by the client was valid, the server crashed internally , .",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 and S7 support server-side failures on valid requests."
+      },
+      {
+        "id": "C90",
+        "location": "sec-6",
+        "text": "Server-side failures are categorized under 5xx server errors , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "supported",
+        "source_id": "S6",
+        "evidence_quote": "o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+        "quote_verified": true,
+        "explanation": "S6 categorizes server failures under 5xx server errors."
+      },
+      {
+        "id": "C91",
+        "location": "sec-7",
+        "text": "What are HTTP requests? (4.9 minutes)",
+        "sids": [
+          "S15"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C92",
+        "location": "sec-7",
+        "text": "What to watch for: Pay attention to how HTTP structures communication over TCP, how GET retrieves data while POST creates new resources, and how status codes like 200 and 404 signal results .",
+        "sids": [
+          "S15"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C93",
+        "location": "sec-7",
+        "text": "HTTP Requests and Responses Explained in 5 Minutes (5.0 minutes)",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C94",
+        "location": "sec-7",
+        "text": "What to watch for: Note the structure of HTTP messages (request line, headers, body) and how response status codes are grouped into 2xx success, 4xx client errors, and 5xx server errors .",
+        "sids": [
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C95",
+        "location": "sec-9",
+        "text": "HTTP GET Method: Used strictly to read or retrieve data representation from a server , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C96",
+        "location": "sec-9",
+        "text": "GET requests should not contain request bodies and are safe, idempotent, and cacheable , , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C97",
+        "location": "sec-9",
+        "text": "HTTP POST Method: Used to submit data entities to a server, often creating resources or causing state changes , , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C98",
+        "location": "sec-9",
+        "text": "POST requests carry data in a request body, are not safe, and are not idempotent , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S5"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C99",
+        "location": "sec-9",
+        "text": "Status Code Categories: The first digit of a 3-digit HTTP status code defines its class , :",
+        "sids": [
+          "S6",
+          "S7"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C100",
+        "location": "sec-9",
+        "text": "2xx (Successful): The request was received, understood, and accepted (e.g., 200 OK, 201 Created) , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C101",
+        "location": "sec-9",
+        "text": "4xx (Client Error): The request contains bad syntax or cannot be fulfilled due to a client-side issue (e.g., 404 Not Found) , , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S15",
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C102",
+        "location": "sec-9",
+        "text": "5xx (Server Error): The server failed to fulfill an apparently valid request due to an internal server issue (e.g., 500 Internal Server Error) , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C103",
+        "location": "quiz-Q1",
+        "text": "Answer to 'What is the primary purpose of the HTTP GET method?': To retrieve or read data from a server without modifying resources. The GET method requests a representation of the specified resource and is used to retrieve data without creating or modifying resources on the server , , .",
+        "sids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C104",
+        "location": "quiz-Q2",
+        "text": "Answer to 'Which characteristic correctly describes the HTTP GET method?': GET requests should not contain a request body and are safe and idempotent. HTTP GET requests are designed to retrieve data without a request body and are categorized as safe, idempotent, and cacheable , , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C105",
+        "location": "quiz-Q3",
+        "text": "Answer to 'What happens when a client sends an HTTP POST request to a server?': It submits data to the server, often causing a change in state or side effects on the server. The POST method submits an entity to a specified resource, sending data to the server and often causing state changes or side effects , , .",
+        "sids": [
+          "S1",
+          "S2",
+          "S6"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C106",
+        "location": "quiz-Q4",
+        "text": "Answer to 'Why is the HTTP POST method classified as non-idempotent?': Successive identical POST requests may have additional effects, such as creating duplicate resources. Unlike idempotent methods, calling POST multiple times can result in additional side effects, such as creating multiple separate orders or records , .",
+        "sids": [
+          "S1",
+          "S5"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C107",
+        "location": "quiz-Q5",
+        "text": "Answer to 'A user tries to visit a web page, but receives a 404 status code. How is this response category classified?': 4xx indicates a Client Error, meaning the request contains bad syntax or cannot be fulfilled. The 4xx class of status codes indicates a client error, such as a 404 Not Found when a requested resource cannot be fulfilled , , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S15",
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "C108",
+        "location": "quiz-Q6",
+        "text": "Answer to 'How do 2xx, 4xx, and 5xx response status categories differ from one another?': 2xx indicates success, 4xx indicates a client error, and 5xx indicates a server error. The first digit defines the status category: 2xx represents successful responses, 4xx represents client error responses, and 5xx represents server error responses , , .",
+        "sids": [
+          "S6",
+          "S7",
+          "S16"
+        ],
+        "verdict": "not_checked",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Over the 90-claim limit for one QC call."
+      },
+      {
+        "id": "U1",
+        "location": "sec-9",
+        "text": "Here are the key takeaways from this lesson:",
+        "sids": [],
+        "verdict": "uncited",
+        "source_id": null,
+        "evidence_quote": "",
+        "quote_verified": false,
+        "explanation": "Factual-looking sentence without a citation (detected in code)."
+      }
+    ],
+    "numeric_checks": [],
+    "source_audit": [
+      "Most-cited source S6 carries 74 of 108 cited claims (69%)."
+    ],
+    "outcome_gaps": [],
+    "contradictions": []
+  },
+  "issues": [
+    {
+      "category": "low_tier_source",
+      "issue_id": "F-1",
+      "claim_or_text": "401 Unauthorized: The request lacks valid authentication credentials .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 1,
+      "severity": "major",
+      "location": "sec-4",
+      "evidence": "Only tier-4 source(s): S16",
+      "suggestion": "Support this key claim with a tier 1-2 source from the evidence store, or soften it."
+    },
+    {
+      "category": "low_tier_source",
+      "issue_id": "F-2",
+      "claim_or_text": "403 Forbidden: The server understands the request but refuses to authorize it .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 2,
+      "severity": "major",
+      "location": "sec-4",
+      "evidence": "Only tier-4 source(s): S16",
+      "suggestion": "Support this key claim with a tier 1-2 source from the evidence store, or soften it."
+    },
+    {
+      "category": "low_tier_source",
+      "issue_id": "F-3",
+      "claim_or_text": "503 Service Unavailable: The server is currently unable to handle the request, often due to maintenance or overload .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 3,
+      "severity": "major",
+      "location": "sec-4",
+      "evidence": "Only tier-4 source(s): S16",
+      "suggestion": "Support this key claim with a tier 1-2 source from the evidence store, or soften it."
+    },
+    {
+      "category": "low_tier_source",
+      "issue_id": "F-4",
+      "claim_or_text": "Response Code: 500 Internal Server Error .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 4,
+      "severity": "major",
+      "location": "sec-5",
+      "evidence": "Only tier-4 source(s): S16",
+      "suggestion": "Support this key claim with a tier 1-2 source from the evidence store, or soften it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-5",
+      "claim_or_text": "The GET method is the primary mechanism of information retrieval on the web .",
+      "source_ids": [
+        "S6"
+      ],
+      "status": "open",
+      "id": 5,
+      "severity": "minor",
+      "location": "sec-2",
+      "evidence": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6 specification covers GET as a retrieval method (S2 also defines GET as requesting a representation of a resource).",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-6",
+      "claim_or_text": "Safe methods are read-only operations that do not alter resources or cause side effects on the server , , .",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S6"
+      ],
+      "status": "open",
+      "id": 6,
+      "severity": "minor",
+      "location": "sec-2",
+      "evidence": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S2 and general HTTP semantics define safe methods as read-only operations without side effects.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-7",
+      "claim_or_text": "An idempotent method produces the same intended effect on the server whether it is executed once or multiple times consecutively , .",
+      "source_ids": [
+        "S1",
+        "S6"
+      ],
+      "status": "open",
+      "id": 7,
+      "severity": "minor",
+      "location": "sec-2",
+      "evidence": "Downgraded: the quoted evidence was not found verbatim in the source excerpt. S6/S2 definitions of idempotence mean multiple identical calls have the same effect as a single call.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-8",
+      "claim_or_text": "Caching allows responses to be stored for future reuse to optimize performance .",
+      "source_ids": [
+        "S6"
+      ],
+      "status": "open",
+      "id": 8,
+      "severity": "minor",
+      "location": "sec-2",
+      "evidence": "Responses with status codes that are defined as cacheable by default ... can be reused by a cache",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-9",
+      "claim_or_text": "Common form encodings include application/x-www-form-urlencoded (where data is formatted as key=value pairs separated by &) and multipart/form-data (used for uploading files or submitting large blocks of data delineated by boundary strings) .",
+      "source_ids": [
+        "S1"
+      ],
+      "status": "open",
+      "id": 9,
+      "severity": "minor",
+      "location": "sec-3",
+      "evidence": "application/x-www-form-urlencoded: the keys and values are encoded in key-value tuples separated by an ampersand (&), with an equals symbol (=) between the key and the value ... multipart/form-data: each value is sent as a block of data (\"body part\"), with a user agent-defined delimiter",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-10",
+      "claim_or_text": "Non-form calls (such as API fetch requests) can send JSON or other body formats , .",
+      "source_ids": [
+        "S1",
+        "S5"
+      ],
+      "status": "open",
+      "id": 10,
+      "severity": "minor",
+      "location": "sec-3",
+      "evidence": "When the `POST` request is sent following a `fetch()` call, or for any other reason than an HTML form, the body can be any type.",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-11",
+      "claim_or_text": "Safe? | Yes (Read-only) , , | No (Causes side effects / state change) , ,",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S6"
+      ],
+      "status": "open",
+      "id": 11,
+      "severity": "minor",
+      "location": "sec-3",
+      "evidence": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-12",
+      "claim_or_text": "Idempotent? | Yes (Repeated calls yield same state) , , | No (Repeated calls cause multiple effects) , ,",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S6",
+        "S5"
+      ],
+      "status": "open",
+      "id": 12,
+      "severity": "minor",
+      "location": "sec-3",
+      "evidence": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-13",
+      "claim_or_text": "Cacheable? | Yes , , | Only with explicit freshness info , ,",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S6"
+      ],
+      "status": "open",
+      "id": 13,
+      "severity": "minor",
+      "location": "sec-3",
+      "evidence": "| `GET` | Yes | Yes | Yes |\n| `POST` | No | No | Conditional\\* |",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-14",
+      "claim_or_text": "201 Created: Indicates that the request was fulfilled and resulted in one or more new resources being created on the server , .",
+      "source_ids": [
+        "S6",
+        "S16"
+      ],
+      "status": "open",
+      "id": 14,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "201 ... Created",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-15",
+      "claim_or_text": "204 No Content: Indicates that the server successfully fulfilled the request, but there is no payload body to send in the response , .",
+      "source_ids": [
+        "S6",
+        "S16"
+      ],
+      "status": "open",
+      "id": 15,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "204 ... No Content",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-16",
+      "claim_or_text": "401 Unauthorized: The request lacks valid authentication credentials .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 16,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "401 ... Unauthorized",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-17",
+      "claim_or_text": "403 Forbidden: The server understands the request but refuses to authorize it .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 17,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "403 ... Forbidden",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-18",
+      "claim_or_text": "500 Internal Server Error: A generic error message indicating the server encountered an unexpected condition , .",
+      "source_ids": [
+        "S6",
+        "S16"
+      ],
+      "status": "open",
+      "id": 18,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "500 ... Internal Server Error",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-19",
+      "claim_or_text": "503 Service Unavailable: The server is currently unable to handle the request, often due to maintenance or overload .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 19,
+      "severity": "minor",
+      "location": "sec-4",
+      "evidence": "503 ... Service Unavailable",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-20",
+      "claim_or_text": "Response Code: 500 Internal Server Error .",
+      "source_ids": [
+        "S16"
+      ],
+      "status": "open",
+      "id": 20,
+      "severity": "minor",
+      "location": "sec-5",
+      "evidence": "500 ... Internal Server Error",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-21",
+      "claim_or_text": "Do not confuse 4xx and 5xx errors: 4xx errors mean the client sent a bad request or asked for a non-existent resource; 5xx errors mean the client request was valid, but the server encountered a failure , , .",
+      "source_ids": [
+        "S6",
+        "S7",
+        "S16"
+      ],
+      "status": "open",
+      "id": 21,
+      "severity": "minor",
+      "location": "sec-5",
+      "evidence": "o 4xx (Client Error): The request contains bad syntax or cannot be fulfilled ... o 5xx (Server Error): The server failed to fulfill an apparently valid request",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "claim_partially_supported",
+      "issue_id": "F-22",
+      "claim_or_text": "Upon successful creation, the server responds with a 2xx status code (such as 201 Created) , .",
+      "source_ids": [
+        "S6",
+        "S16"
+      ],
+      "status": "open",
+      "id": 22,
+      "severity": "minor",
+      "location": "sec-6",
+      "evidence": "201 ... Created",
+      "suggestion": "Rewrite the claim so it says only what the cited source states, cite a source that supports it, or remove it."
+    },
+    {
+      "category": "uncited_claim",
+      "issue_id": "F-23",
+      "claim_or_text": "Here are the key takeaways from this lesson:",
+      "source_ids": [],
+      "status": "open",
+      "id": 23,
+      "severity": "minor",
+      "location": "sec-9",
+      "evidence": "",
+      "suggestion": "Add a citation to a source that states this, or remove/soften the sentence."
+    },
+    {
+      "category": "over_reliance",
+      "issue_id": "F-24",
+      "claim_or_text": "S6 carries 69% of claims",
+      "source_ids": [
+        "S6"
+      ],
+      "status": "open",
+      "id": 24,
+      "severity": "minor",
+      "location": null,
+      "evidence": "RFC 7231 - Hypertext Transfer Protocol \u2020HTTP/1.1",
+      "suggestion": "Cross-check key claims against a second independent source."
+    }
+  ]
+}

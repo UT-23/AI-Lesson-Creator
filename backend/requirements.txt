@@ -1,0 +1,14 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pydantic-settings>=2.3
+sqlmodel>=0.0.21
+httpx>=0.27
+tenacity>=8.5
+
+# providers
+google-genai>=1.68
+youtube-transcript-api>=1.2.5
+
+# tests
+pytest>=8.2

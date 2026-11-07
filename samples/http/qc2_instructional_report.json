@@ -1,0 +1,279 @@
+{
+  "report_id": 2,
+  "layer": "instructional",
+  "lesson_id": 1,
+  "lesson_version_no": 1,
+  "score": 96.7,
+  "summary": "This self-paced lesson covers HTTP GET and POST methods as well as 2xx, 4xx, and 5xx response status categories. It features clear concept explanations, worked examples, practice scenarios, external video links, and multiple-choice questions. Rubric average 4.8/5. Measured time 28.8 of 45 min. Reviewer: gemini-3.5-flash-lite.",
+  "created_at": "2026-11-07T15:15:17.282913+00:00",
+  "details": {
+    "method": "one LLM review call (no access to QC1) + code: quiz mapping, coverage gaps, time budget",
+    "model": "gemini-3.5-flash-lite",
+    "coverage_matrix": [
+      {
+        "outcome": "Explain the HTTP GET method",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-1",
+            "sec-2",
+            "sec-5"
+          ],
+          "note": "GET method characteristics are thoroughly explained."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "Weather data fetching is used as a worked example."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-6"
+          ],
+          "note": "Task 1 requires method identification."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q1",
+            "Q2"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      },
+      {
+        "outcome": "Explain the HTTP POST method",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-3",
+            "sec-5"
+          ],
+          "note": "POST method characteristics and use cases are explained."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "Sign-up form submission is used as a worked example."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-6"
+          ],
+          "note": "Task 2 requires method identification."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q3",
+            "Q4"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      },
+      {
+        "outcome": "Distinguish between 2xx, 4xx, and 5xx response status categories",
+        "explanation": {
+          "present": true,
+          "sections": [
+            "sec-4",
+            "sec-5"
+          ],
+          "note": "Status categories and specific codes are explained."
+        },
+        "example": {
+          "present": true,
+          "sections": [
+            "sec-5"
+          ],
+          "note": "4xx vs 5xx scenarios are contrasted."
+        },
+        "practice": {
+          "present": true,
+          "sections": [
+            "sec-6"
+          ],
+          "note": "Tasks 3 and 4 require status category classification."
+        },
+        "quiz": {
+          "present": true,
+          "sections": [
+            "Q5",
+            "Q6"
+          ],
+          "note": "from the lesson's quiz mapping (code)"
+        }
+      }
+    ],
+    "verb_alignment": [
+      {
+        "outcome": "Explain the HTTP GET method",
+        "verb": "Explain",
+        "bloom_level": "understand",
+        "aligned": true,
+        "evidence": "The practice activity and quiz items require identifying and describing GET method characteristics and purposes.",
+        "suggestion": "Include a brief short-answer prompt where learners write out an explanation in their own words before looking at solutions."
+      },
+      {
+        "outcome": "Explain the HTTP POST method",
+        "verb": "Explain",
+        "bloom_level": "understand",
+        "aligned": true,
+        "evidence": "The practice activity and quiz items require identifying and describing POST method behaviors and state changes.",
+        "suggestion": "Include a short writing prompt for learners to explain why POST is non-idempotent."
+      },
+      {
+        "outcome": "Distinguish between 2xx, 4xx, and 5xx response status categories",
+        "verb": "Distinguish",
+        "bloom_level": "analyze",
+        "aligned": true,
+        "evidence": "The practice activity requires learners to analyze distinct scenarios and choose between 2xx, 4xx, and 5xx categories, matching the outcome.",
+        "suggestion": "Add a matrix comparison exercise to further strengthen analytical distinction."
+      }
+    ],
+    "rubric": [
+      {
+        "criterion": "clarity",
+        "score": 5,
+        "justification": "The language is precise, highly accessible to adult beginners, and avoids unnecessary complexity."
+      },
+      {
+        "criterion": "structure_flow",
+        "score": 5,
+        "justification": "Logical progression from basic definitions to methods, status codes, examples, and practice."
+      },
+      {
+        "criterion": "jargon_before_use",
+        "score": 4,
+        "justification": "Most terms like idempotent and safe are defined well, though brief introductory glosses could be sharper."
+      },
+      {
+        "criterion": "example_quality",
+        "score": 5,
+        "justification": "Real-world scenarios like weather fetching and sign-up forms make abstract concepts concrete."
+      },
+      {
+        "criterion": "practical_relevance",
+        "score": 5,
+        "justification": "Directly applies to web browsing, API interactions, and debugging common web errors."
+      },
+      {
+        "criterion": "outcome_alignment",
+        "score": 5,
+        "justification": "Every outcome is directly supported by explanations, examples, practice tasks, and quiz questions."
+      }
+    ],
+    "rubric_average": 4.83,
+    "time_budget": {
+      "budget_min": 45,
+      "wpm": 200,
+      "total_declared_min": 32.0,
+      "total_computed_min": 28.8,
+      "over_budget": false,
+      "sections": [
+        {
+          "id": "sec-1",
+          "type": "hook",
+          "heading": "Introduction: How Devices Talk on the Web",
+          "declared_min": 1.0,
+          "computed_min": 0.6,
+          "basis": "112 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-2",
+          "type": "concept",
+          "heading": "Understanding the HTTP GET Method",
+          "declared_min": 2.0,
+          "computed_min": 1.2,
+          "basis": "245 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-3",
+          "type": "concept",
+          "heading": "Understanding the HTTP POST Method",
+          "declared_min": 2.0,
+          "computed_min": 1.4,
+          "basis": "289 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-4",
+          "type": "concept",
+          "heading": "HTTP Response Status Categories: 2xx, 4xx, and 5xx",
+          "declared_min": 2.0,
+          "computed_min": 1.7,
+          "basis": "343 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-5",
+          "type": "example",
+          "heading": "Worked Examples: Analyzing Requests and Responses",
+          "declared_min": 2.0,
+          "computed_min": 1.7,
+          "basis": "347 words at 200 wpm",
+          "flags": []
+        },
+        {
+          "id": "sec-6",
+          "type": "activity",
+          "heading": "Practice Activity: Scenario Classification",
+          "declared_min": 5.0,
+          "computed_min": 5.0,
+          "basis": "declared activity time (at least the reading time)",
+          "flags": []
+        },
+        {
+          "id": "sec-7",
+          "type": "video",
+          "heading": "Recommended Video Lessons",
+          "declared_min": 11.0,
+          "computed_min": 10.5,
+          "basis": "reading + 2 video(s) at real duration",
+          "flags": []
+        },
+        {
+          "id": "sec-8",
+          "type": "knowledge_check",
+          "heading": "Knowledge Check Instructions",
+          "declared_min": 6.0,
+          "computed_min": 6.0,
+          "basis": "declared time, at least reading + 0.5 min x 6 question(s)",
+          "flags": []
+        },
+        {
+          "id": "sec-9",
+          "type": "summary",
+          "heading": "Lesson Summary",
+          "declared_min": 1.0,
+          "computed_min": 0.7,
+          "basis": "144 words at 200 wpm",
+          "flags": []
+        }
+      ],
+      "flags": []
+    }
+  },
+  "issues": [
+    {
+      "category": "Interactivity",
+      "issue_id": "I-1",
+      "claim_or_text": "Blank task fields for practice",
+      "source_ids": [],
+      "status": "open",
+      "id": 25,
+      "severity": "minor",
+      "location": "sec-6",
+      "evidence": "The practice activity lists method, status category, and explanation fields as blank lines without interactive input elements.",
+      "suggestion": "Provide immediate collapsible answer keys or explicit instructions for learners to check their work on scratch paper."
+    }
+  ]
+}
