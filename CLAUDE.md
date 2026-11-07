@@ -1,3 +1,5 @@
+Read PROJECT_CONTEXT.md first for current status.
+
 # CLAUDE.md — AI Lesson Creation Tool
 
 ## What we're building
